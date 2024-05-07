@@ -1,46 +1,46 @@
-name: Build and deploy
+name: Deploy to GitHub Pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-
-permissions:
-  contents: write
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [20]
-
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
-
+      - run: corepack enable
       - name: Setup PNPM
         uses: pnpm/action-setup@v2
         with:
           version: 7
-
       - name: Setup node env 🏗
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "20"
           cache: pnpm
 
       - name: Install & Generate 🔧
-        run: |
-          pnpm install --no-frozen-lockfile
-          pnpm generate
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+        run: pnpm install --no-frozen-lockfile
+      - run: npx nuxt build --preset github_pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          folder: dist
+          path: ./.output/public
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github_pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
