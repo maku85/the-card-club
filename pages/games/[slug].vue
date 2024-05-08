@@ -61,11 +61,11 @@ const variationsQuery: QueryBuilderParams = {
         >
           <ul>
             <li>
-              <span class="font-bold uppercase">Players:</span>
+              <span class="font-bold uppercase">Giocatori:</span>
               <span class="ml-2">{{ game?.players || "n.d." }}</span>
             </li>
             <li>
-              <span class="font-bold uppercase">Cards:</span>
+              <span class="font-bold uppercase">Carte:</span>
               <span class="ml-2">{{ game?.cards || "n.d." }}</span>
             </li>
           </ul>
