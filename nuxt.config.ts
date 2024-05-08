@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
-    baseURL: "/tha-card-club/",
+    baseURL: "/the-card-club/",
   },
   modules: ["@nuxt/content", "@nuxtjs/eslint-module", "@nuxtjs/tailwindcss"],
   postcss: {
