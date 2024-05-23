@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/the-card-club/",
   },
-  modules: ["@nuxt/content", "@nuxtjs/eslint-module", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/content", "@nuxt/eslint", "@nuxtjs/tailwindcss"],
   postcss: {
     plugins: {
       tailwindcss: {},

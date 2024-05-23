@@ -4,12 +4,12 @@
   >
     <section>
       <div class="h-2 flex flex-column">
-        <div class="grow bg-blue-800"></div>
-        <div class="grow bg-cyan-400"></div>
-        <div class="grow bg-purple-800"></div>
-        <div class="grow bg-yellow-400"></div>
-        <div class="grow bg-red-600"></div>
-        <div class="grow bg-blue-800"></div>
+        <div class="grow bg-blue-800" />
+        <div class="grow bg-cyan-400"> />
+        <div class="grow bg-purple-800" />
+        <div class="grow bg-yellow-400" />
+        <div class="grow bg-red-600" />
+        <div class="grow bg-blue-800" />
       </div>
     </section>
 
