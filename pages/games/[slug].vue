@@ -119,7 +119,7 @@
     </section>
 
     <section
-      class="container mx-auto py-8 px-10 border border-gray-200 border-t-2 border-l-0 border-r-0 border-b-0"
+      class="py-8 border border-gray-200 border-t-2 border-l-0 border-r-0 border-b-0"
     >
       <PrevNext :prev="prev" :next="next" />
     </section>

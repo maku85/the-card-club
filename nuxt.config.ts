@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     baseURL: '/the-card-club/',
+    head: {
+      htmlAttrs: {
+        lang: 'it',
+      },
+    },
   },
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
   postcss: {

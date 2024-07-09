@@ -13,9 +13,9 @@
     className="container mx-auto px-12 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl border border-gray-200 border-t-0 border-l-0 border-r-0 border-b-1"
   >
     <form class="py-8">
-      <div class="flex flex-row gap-4 justify-center">
+      <div class="flex flex-row flex-wrap sm:flex-nowrap gap-4 justify-center">
         <span
-          class="flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
+          class="w-full sm:w-auto flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
         >
           <img
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-4"
@@ -25,7 +25,7 @@
           <select
             id="playersSelect"
             v-model="filters.nOfPlayers"
-            className="h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
+            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>
@@ -42,7 +42,7 @@
           </select>
         </span>
         <span
-          class="flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
+          class="w-full sm:w-auto flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
         >
           <img
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-5"
@@ -52,7 +52,7 @@
           <select
             id="cardsSelect"
             v-model="filters.nOfCards"
-            className="h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-10 md:pl-3 py-0 md:py-1 tracking-wider"
+            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-10 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>
@@ -61,7 +61,7 @@
           </select>
         </span>
         <span
-          class="flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
+          class="w-full sm:w-auto flex gap-1 relative text-gray-400 focus-within:text-gray-600 block"
         >
           <img
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-5"
@@ -71,7 +71,7 @@
           <select
             id="teamSelect"
             v-model="filters.teams"
-            className="h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
+            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>

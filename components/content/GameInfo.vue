@@ -19,9 +19,9 @@
 </script>
 
 <template>
-  <h1 class="flex gap-4">
+  <h1 class="text-center block md:flex gap-4">
     {{ title }}
-    <span class="flex">
+    <span class="flex justify-center">
       <span class="flex gap-1 items-center mr-3">
         <img src="/img/players-icon.svg" alt="Players icon" />
         <span>{{ players }}</span>
