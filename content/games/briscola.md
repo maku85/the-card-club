@@ -1,5 +1,5 @@
 ---
-title: 'Briscola a due'
+title: 'Briscola'
 cards: '40'
 minPlayers: 2
 maxPlayers: 2
