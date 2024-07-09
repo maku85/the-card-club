@@ -34,7 +34,7 @@
 
 <template>
   <div
-    class="container mx-auto px-12 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl"
+    class="container mx-auto px-8 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl"
   >
     <section class="flex flex-col items-center my-8">
       <h1 class="text-4xl font-bold">{{ game.title }}</h1>
