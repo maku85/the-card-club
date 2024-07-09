@@ -1,97 +1,115 @@
 <script setup lang="ts">
-import type { QueryBuilderParams } from "@nuxt/content/dist/runtime/types";
+  import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
-const route = useRoute();
-const { slug } = route.params;
-const { data } = await useAsyncData("game", async () => {
-  const game = queryContent("games")
-    .where({ _path: `/games/${slug}` })
-    .findOne();
+  const route = useRoute();
+  const { slug } = route.params;
+  const { data } = await useAsyncData('game', async () => {
+    const game = queryContent('games')
+      .where({ _path: `/games/${slug}` })
+      .findOne();
 
-  const surround = queryContent()
-    .only(["_path", "title"])
-    .sort({ date: 1 })
-    .findSurround(`/games/${slug}`);
-  return {
-    game: await game,
-    surround: await surround,
-  };
-});
-const game = data?.value?.game;
-const [prev, next] = data?.value?.surround || [];
+    const surround = queryContent()
+      .only(['_path', 'title'])
+      .sort({ date: 1 })
+      .findSurround(`/games/${slug}`);
+    return {
+      game: await game,
+      surround: await surround,
+    };
+  });
+  const game = data?.value?.game;
+  const [prev, next] = data?.value?.surround || [];
 
-const variationsQuery: QueryBuilderParams = {
-  path: "/games",
-  where: [
-    {
-      _path: {
-        $in: (game?.variations || []).map((v: string) => `/games/${v}`),
+  const variationsQuery: QueryBuilderParams = {
+    path: '/games',
+    where: [
+      {
+        _path: {
+          $in: (game?.variations || []).map((v: string) => `/games/${v}`),
+        },
       },
-    },
-  ],
-  only: ["title", "image", "_path", "excerpt"],
-};
+    ],
+  };
 </script>
 
 <template>
-  <div class="container-fluid mx-auto">
-    <section class="container-fluid">
+  <div
+    class="container mx-auto px-12 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl"
+  >
+    <section class="flex flex-col items-center my-8">
+      <h1 class="text-4xl font-bold">{{ game.title }}</h1>
       <div
-        style="
-          background-image: url(https://images.unsplash.com/photo-1501003878151-d3cb87799705?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-        "
-        class="bg-hero bg-cover bg-center bg-no-repeat relative text-white"
+        class="flex items-center border border-neutral-50 border-t-1 border-l-0 border-r-0 border-b-0"
       >
-        <div
-          class="bg-gradient-to-r from-transparent via-grey-500 to-slate-900 w-full absolute bottom-0 top-0 bg-opacity-35"
-        ></div>
-        <div class="container mx-auto">
-          <h1 class="relative py-4 sm:py-10">{{ game?.title }}</h1>
-        </div>
+        <span class="flex mr-4">
+          <svg
+            class="h-10"
+            viewBox="0 0 512.000000 512.000000"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <g
+              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              stroke="none"
+            >
+              <path
+                d="M1380 3863 c-63 -23 -151 -113 -173 -177 -35 -101 -14 -221 51 -304 17 -21 59 -54 94 -72 55 -30 72 -34 138 -34 91 -1 154 25 217 86 61 60 87 126 87 218 1 125 -54 214 -166 270 -52 25 -72 30 -132 29 -39 0 -91 -8 -116 -16z m163 -104 c50 -14 113 -71 128 -116 29 -88 -13 -193 -93 -232 -192 -92 -368 149 -218 299 53 53 112 69 183 49z"
+              />
+              <path
+                d="M3492 3850 c-112 -56 -167 -145 -166 -270 0 -128 65 -230 179 -282 74 -34 181 -31 253 5 108 56 172 158 172 275 0 86 -26 148 -90 213 -65 66 -122 89 -220 89 -54 0 -78 -6 -128 -30z m189 -92 c84 -28 133 -96 132 -183 0 -78 -36 -131 -112 -170 -78 -39 -199 3 -241 85 -52 102 -2 227 106 265 48 17 72 18 115 3z"
+              />
+              <path
+                d="M1268 3196 c-26 -7 -62 -25 -82 -39 -75 -58 -74 -53 -138 -496 -65 -448 -66 -467 -13 -557 39 -67 85 -87 283 -127 95 -19 175 -37 179 -40 3 -4 0 -121 -7 -260 -12 -252 -12 -255 9 -303 29 -64 46 -82 106 -110 92 -44 204 -29 279 38 73 64 76 77 97 491 21 406 21 417 -34 489 -47 62 -93 82 -267 117 -85 18 -160 34 -166 36 -7 2 0 75 22 232 42 286 43 341 8 411 -30 61 -74 98 -140 118 -56 17 -74 17 -136 0z m148 -137 c46 -43 47 -74 9 -339 -43 -301 -44 -320 -7 -361 26 -29 40 -34 213 -70 178 -37 185 -39 217 -73 38 -43 37 -15 16 -441 -11 -214 -21 -331 -30 -353 -10 -24 -26 -38 -60 -53 -58 -26 -106 -19 -147 22 l-30 31 6 156 c4 86 10 225 13 307 l7 150 -224 45 c-249 50 -271 60 -285 135 -8 46 89 762 110 811 29 64 139 83 192 33z"
+              />
+              <path
+                d="M3712 3196 c-62 -20 -106 -59 -136 -118 -34 -68 -34 -119 4 -383 16 -116 30 -222 30 -236 0 -26 -2 -27 -164 -59 -95 -19 -180 -41 -202 -54 -47 -26 -100 -94 -114 -146 -16 -61 22 -761 44 -815 49 -115 187 -172 320 -133 55 17 118 81 135 137 11 37 11 89 1 293 -7 137 -10 251 -7 255 4 3 84 21 179 40 197 39 244 60 282 126 53 90 53 105 -9 538 -31 223 -63 411 -72 432 -43 99 -182 158 -291 123z m135 -123 c20 -9 40 -29 48 -47 22 -49 119 -765 111 -811 -14 -75 -36 -85 -285 -135 l-224 -45 6 -150 c4 -82 10 -221 13 -307 l7 -156 -30 -30 c-41 -42 -89 -49 -147 -23 -34 15 -50 29 -60 53 -10 23 -20 145 -32 387 -16 332 -16 356 0 385 9 18 27 38 39 45 12 8 103 31 201 51 168 35 182 40 208 69 37 41 36 60 -7 361 -27 190 -33 251 -25 280 21 79 98 111 177 73z"
+              />
+              <path
+                d="M1982 2768 c-24 -31 -23 -57 2 -83 l25 -25 551 0 551 0 25 25 c25 26 26 52 2 83 -15 18 -1141 18 -1156 0z"
+              />
+              <path
+                d="M1630 2592 c-28 -22 -30 -70 -4 -89 14 -10 106 -13 446 -13 l428 0 0 -520 0 -520 -145 0 c-134 0 -147 -2 -166 -21 -24 -24 -20 -65 8 -86 24 -19 702 -19 726 0 28 21 32 62 8 86 -19 19 -32 21 -166 21 l-145 0 0 520 0 520 428 0 c340 0 432 3 446 13 26 19 24 67 -4 89 -21 17 -69 18 -930 18 -861 0 -909 -1 -930 -18z"
+              />
+            </g>
+          </svg>
+          <span class="self-center">{{ game.players || 'n.d.' }}</span>
+        </span>
+        <span class="flex">
+          <svg class="w-6" viewBox="0 0 463.644 463.644">
+            <path
+              id="XMLID_1_"
+              d="M463.164,146.031l-77.369,288.746c-1.677,6.26-7.362,10.4-13.556,10.401c-1.198,0-2.414-0.155-3.625-0.479  l-189.261-50.712c-7.472-2.003-11.922-9.711-9.919-17.183l2.041-7.616c1.287-4.801,6.222-7.647,11.023-6.363  c4.801,1.287,7.65,6.222,6.363,11.023l-1.013,3.78l181.587,48.656l75.314-281.076l-77.031-20.64  c-4.801-1.287-7.651-6.222-6.364-11.023s6.225-7.648,11.022-6.364l80.869,21.668C460.718,130.853,465.167,138.56,463.164,146.031z   M166.128,56.029c-4.971,0-9,4.029-9,9v8.565c0,4.971,4.029,9,9,9s9-4.029,9-9v-8.565C175.128,60.058,171.099,56.029,166.128,56.029  z M280.889,176.762c2.202,3.114,2.202,7.278,0,10.393l-41.716,58.996c-1.687,2.385-4.427,3.804-7.349,3.804  c-2.921,0-5.662-1.418-7.348-3.804l-41.718-58.996c-2.202-3.114-2.202-7.278,0-10.393l41.718-58.996  c1.687-2.385,4.427-3.804,7.348-3.804c2.922,0,5.662,1.418,7.349,3.804L280.889,176.762z M262.518,181.958l-30.694-43.408  l-30.694,43.408l30.694,43.407L262.518,181.958z M343.016,380.764l-2.216,8.273c-1.286,4.801,1.563,9.736,6.365,11.022  c0.78,0.209,1.563,0.309,2.334,0.309c3.974,0,7.611-2.653,8.688-6.674l2.216-8.273c1.286-4.801-1.563-9.736-6.365-11.022  C349.237,373.111,344.302,375.963,343.016,380.764z M112.375,215.913c2.577-0.69,5.056-1.089,7.454-1.195V32.492  c0-7.736,6.293-14.029,14.028-14.029h195.935c7.736,0,14.03,6.293,14.03,14.029v182.225c2.396,0.106,4.875,0.505,7.45,1.195  c16.511,4.424,26.346,21.457,21.922,37.968c-4.28,15.974-17.951,28.108-29.372,36.404v41.139c0,7.736-6.294,14.03-14.03,14.03  H133.857c-7.735,0-14.028-6.294-14.028-14.03v-41.137c-11.422-8.295-25.093-20.428-29.376-36.405  c-2.143-7.996-1.042-16.35,3.1-23.523C97.695,223.186,104.38,218.055,112.375,215.913z M343.821,267.05  c6.531-6.172,10.424-12,11.985-17.828c1.855-6.924-2.27-14.067-9.194-15.923c-1.047-0.281-1.97-0.451-2.791-0.538V267.05z   M137.829,327.454h187.992v-41.7c-0.001-0.08-0.001-0.161,0-0.241v-59.907c-0.003-0.13-0.003-0.261,0-0.391V36.463H137.829v188.755  c0.003,0.13,0.003,0.261,0,0.392v59.898c0.001,0.084,0.001,0.168,0,0.252V327.454z M107.84,249.222  c1.563,5.83,5.457,11.66,11.989,17.832v-34.292c-0.822,0.086-1.746,0.256-2.794,0.537c-3.353,0.898-6.156,3.051-7.894,6.061  C107.404,242.369,106.942,245.871,107.84,249.222z M173.576,405.019l-79.363,21.265L18.897,145.209l77.031-20.641  c4.801-1.287,7.651-6.222,6.364-11.023c-1.287-4.801-6.225-7.65-11.022-6.364L10.402,128.85c-3.614,0.968-6.637,3.29-8.512,6.538  c-1.876,3.249-2.376,7.029-1.407,10.644l77.37,288.743c0.968,3.616,3.29,6.641,6.54,8.518c2.166,1.25,4.567,1.89,7,1.89  c1.216,0,2.439-0.16,3.644-0.482l83.199-22.293c4.801-1.287,7.651-6.222,6.364-11.022  C183.312,406.581,178.377,403.734,173.576,405.019z M51.298,156.782c-4.801,1.287-7.65,6.222-6.364,11.023l2.217,8.274  c1.078,4.021,4.714,6.673,8.688,6.673c0.771,0,1.555-0.1,2.335-0.309c4.801-1.287,7.65-6.222,6.364-11.023l-2.217-8.274  C61.034,158.344,56.101,155.496,51.298,156.782z M297.52,281.322c-4.971,0-9,4.029-9,9v8.565c0,4.971,4.029,9,9,9s9-4.029,9-9  v-8.565C306.52,285.352,302.491,281.322,297.52,281.322z"
+            />
+          </svg>
+          <span class="ml-1">{{ game.cards || 'n.d.' }}</span>
+        </span>
       </div>
     </section>
 
-    <section class="container mx-auto mt-10 mb-10">
-      <div class="flex flex-wrap sm:flex-nowrap">
-        <div class="bg-gray-200 py-8 px-10">
-          <ContentRendererMarkdown :value="game || {}" />
-        </div>
-        <div
-          class="bg-yellow-400 py-8 px-8 text-nowrap w-full order-first sm:order-last"
-        >
-          <ul>
-            <li>
-              <span class="font-bold uppercase">Giocatori:</span>
-              <span class="ml-2">{{ game?.players || "n.d." }}</span>
-            </li>
-            <li>
-              <span class="font-bold uppercase">Carte:</span>
-              <span class="ml-2">{{ game?.cards || "n.d." }}</span>
-            </li>
-          </ul>
-        </div>
+    <section v-if="game.preparation" class="container mx-auto mt-10 mb-10">
+      <div class="flex justify-end">
+        <span class="py-1.5 px-8 bg-red-500 text-white font-bold">
+          Preparazione
+        </span>
       </div>
+      <div class="bg-gray-200 py-8 px-10">{{ game.preparation }}</div>
+    </section>
 
+    <section class="container mx-auto mt-10 mb-10">
+      <ContentRendererMarkdown class="content" :value="game || {}" />
+    </section>
+
+    <section class="container mx-auto mt-10 mb-10">
       <ContentList :query="variationsQuery">
-        <template #not-found> </template>
+        <template #not-found />
 
         <template #default="{ list }">
-          <div class="py-5">
-            <div class="py-2">
-              <h2>Varianti</h2>
-            </div>
+          <div class="py-8 px-10">
+            <h2>Varianti</h2>
             <div v-for="variation in list" :key="variation._path">
-              <h5>
-                <button
-                  type="button"
-                  class="flex items-center justify-between w-full py-5 font-medium text-500 border-b border-gray-200 gap-3"
-                >
-                  <span>{{ variation.title }}</span>
-                </button>
-              </h5>
-              <div class="py-5 border-b border-gray-200">
+              <h5>{{ variation.title }}</h5>
+              <div class="border-t border-gray-200">
                 <p class="mb-2 text-500">
-                  <ContentRendererMarkdown :value="variation.excerpt || {}" />
+                  <ContentRendererMarkdown :value="variation || {}" />
                 </p>
               </div>
             </div>
@@ -101,9 +119,21 @@ const variationsQuery: QueryBuilderParams = {
     </section>
 
     <section
-      class="container mx-auto mb-10 pt-10 border border-gray-200 border-t-2 border-l-0 border-r-0 border-b-0"
+      class="container mx-auto py-8 px-10 border border-gray-200 border-t-2 border-l-0 border-r-0 border-b-0"
     >
       <PrevNext :prev="prev" :next="next" />
     </section>
   </div>
 </template>
+
+<style>
+  .content p {
+    @apply py-2;
+  }
+  .content h1 {
+    @apply text-xl mb-1;
+  }
+  .content ul {
+    @apply list-disc pl-8;
+  }
+</style>
