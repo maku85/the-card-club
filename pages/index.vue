@@ -42,11 +42,11 @@
   <div class="container mx-auto py-4">
     <AppFilters :filters="filters" :refresh-fn="refresh" />
 
-    <div className="flex flex-wrap py-2 justify-center">
+    <div class="flex flex-wrap py-2 justify-center">
       <div
         v-for="(game, index) in data"
         :key="game._path"
-        className="w-1/2 md:w-auto"
+        class="w-1/2 md:w-auto"
         :class="[data && data.length > 1 ? 'grow' : '']"
       >
         <div class="mx-2 my-2">

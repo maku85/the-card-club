@@ -10,7 +10,7 @@
 
 <template>
   <section
-    className="container mx-auto px-12 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl border border-gray-200 border-t-0 border-l-0 border-r-0 border-b-1"
+    class="container mx-auto px-12 max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl border border-gray-200 border-t-0 border-l-0 border-r-0 border-b-1"
   >
     <form class="py-8">
       <div class="flex flex-row flex-wrap sm:flex-nowrap gap-4 justify-center">
@@ -21,11 +21,11 @@
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-4"
             src="/img/players-icon.svg"
             alt="Players icon"
-          />
+          >
           <select
             id="playersSelect"
             v-model="filters.nOfPlayers"
-            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
+            class="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>
@@ -48,11 +48,11 @@
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-5"
             src="/img/cards-icon.svg"
             alt="Cards icon"
-          />
+          >
           <select
             id="cardsSelect"
             v-model="filters.nOfCards"
-            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-10 md:pl-3 py-0 md:py-1 tracking-wider"
+            class="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-10 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>
@@ -67,11 +67,11 @@
             class="pointer-events-none w-8 h-8 absolute top-1/2 transform -translate-y-1/2 right-5"
             src="/img/team-icon.svg"
             alt="Cards icon"
-          />
+          >
           <select
             id="teamSelect"
             v-model="filters.teams"
-            className="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
+            class="w-full sm:w-auto h-10 border-2 border-gray-500 focus:outline-none focus:border-gray-500 text-gray-500 rounded pl-2 pr-8 md:pl-3 py-0 md:py-1 tracking-wider"
             @change="refresh()"
           >
             <option value="">Qualsiasi</option>

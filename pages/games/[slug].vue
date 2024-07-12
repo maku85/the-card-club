@@ -1,35 +1,12 @@
 <script setup lang="ts">
-  import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
-
   const route = useRoute();
   const { slug } = route.params;
-  const { data } = await useAsyncData('game', async () => {
-    const game = queryContent('games')
-      .where({ _path: `/games/${slug}` })
-      .findOne();
+  const { data: game } = await useAsyncData('game', () => queryContent(`/games/${slug}`).findOne());
+  const [prev, next] = await queryContent()
+  .only(['_path', 'title'])
+  .sort({ date: 1})
+  .findSurround(`/games/${slug}`);
 
-    const surround = queryContent()
-      .only(['_path', 'title'])
-      .sort({ date: 1 })
-      .findSurround(`/games/${slug}`);
-    return {
-      game: await game,
-      surround: await surround,
-    };
-  });
-  const game = data?.value?.game;
-  const [prev, next] = data?.value?.surround || [];
-
-  const variationsQuery: QueryBuilderParams = {
-    path: '/games',
-    where: [
-      {
-        _path: {
-          $in: (game?.variations || []).map((v: string) => `/games/${v}`),
-        },
-      },
-    ],
-  };
 </script>
 
 <template>
@@ -85,37 +62,8 @@
       </div>
     </section>
 
-    <section v-if="game.preparation" class="container mx-auto mt-10 mb-10">
-      <div class="flex justify-end">
-        <span class="py-1.5 px-8 bg-red-500 text-white font-bold">
-          Preparazione
-        </span>
-      </div>
-      <div class="bg-gray-200 py-8 px-10">{{ game.preparation }}</div>
-    </section>
-
     <section class="container mx-auto mt-10 mb-10">
-      <ContentRendererMarkdown class="content" :value="game || {}" />
-    </section>
-
-    <section class="container mx-auto mt-10 mb-10">
-      <ContentList :query="variationsQuery">
-        <template #not-found />
-
-        <template #default="{ list }">
-          <div class="py-8 px-10">
-            <h2>Varianti</h2>
-            <div v-for="variation in list" :key="variation._path">
-              <h5>{{ variation.title }}</h5>
-              <div class="border-t border-gray-200">
-                <p class="mb-2 text-500">
-                  <ContentRendererMarkdown :value="variation || {}" />
-                </p>
-              </div>
-            </div>
-          </div>
-        </template>
-      </ContentList>
+      <ContentDoc class="content" :path="'/games/' + slug" />
     </section>
 
     <section
