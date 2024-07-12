@@ -12,6 +12,16 @@
   import jack from '/img/cards/jack.svg';
   import queen from '/img/cards/queen.svg';
   import king from '/img/cards/king.svg';
+  import aceIT from '/img/cards/italian/ace.png';
+  import twoIT from '/img/cards/italian/two.png';
+  import threeIT from '/img/cards/italian/three.png';
+  import fourIT from '/img/cards/italian/four.png';
+  import fiveIT from '/img/cards/italian/five.png';
+  import sixIT from '/img/cards/italian/six.png';
+  import sevenIT from '/img/cards/italian/seven.png';
+  import jackIT from '/img/cards/italian/jack.png';
+  import queenIT from '/img/cards/italian/queen.png';
+  import kingIT from '/img/cards/italian/king.png';
 
   defineProps({
     cards: {
@@ -19,24 +29,29 @@
       required: false,
       default: () => 'ace,2,3,4,5,6,7,8,9,10,jack,queen,king',
     },
+    cardStyle: {
+      type: String,
+      required: false,
+      default: () => '',
+    },
   });
 
-  function getCardImage(card) {
+  function getCardImage(card, style) {
     switch (card) {
       case 'ace':
-        return ace;
+        return style === 'italian' ? aceIT : ace;
       case 'two':
-        return two;
+        return style === 'italian' ? twoIT : two;
       case 'three':
-        return three;
+        return style === 'italian' ? threeIT : three;
       case 'four':
-        return four;
+        return style === 'italian' ? fourIT : four;
       case 'five':
-        return five;
+        return style === 'italian' ? fiveIT : five;
       case 'six':
-        return six;
+        return style === 'italian' ? sixIT : six;
       case 'seven':
-        return seven;
+        return style === 'italian' ? sevenIT : seven;
       case 'eight':
         return eight;
       case 'nine':
@@ -44,11 +59,11 @@
       case 'ten':
         return ten;
       case 'jack':
-        return jack;
+        return style === 'italian' ? jackIT : jack;
       case 'queen':
-        return queen;
+        return style === 'italian' ? queenIT : queen;
       case 'king':
-        return king;
+        return style === 'italian' ? kingIT : king;
       default:
     }
   }
@@ -57,7 +72,7 @@
 <template>
   <div class="flex">
     <span v-for="card in cards.split(',')" :key="card">
-      <img :src="getCardImage(card)" alt="card" />
+      <img :src="getCardImage(card, cardStyle)" alt="card" >
     </span>
   </div>
 </template>

@@ -63,7 +63,7 @@
     </section>
 
     <section class="container mx-auto mt-10 mb-10">
-      <ContentDoc class="content" :path="'/games/' + slug" />
+      <ContentRenderer class="content" :value="game" />
     </section>
 
     <section
