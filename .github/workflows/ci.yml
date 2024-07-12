@@ -55,6 +55,7 @@ jobs:
 
       - name: Static HTML export with Nuxt
         run: pnpm run build
+        run: pnpm run generate
 
       - name: Upload artifact 🚀
         uses: actions/upload-pages-artifact@v3
