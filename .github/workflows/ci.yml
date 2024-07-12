@@ -53,8 +53,10 @@ jobs:
       - name: Install dependencies 📦
         run: pnpm install --no-frozen-lockfile
 
-      - name: Static HTML export with Nuxt
+      - name: Build with Nuxt
         run: pnpm run build
+
+      - name: Static HTML export with Nuxt
         run: pnpm run generate
 
       - name: Upload artifact 🚀
