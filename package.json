@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.13.1",
+    "@nuxt/image": "^1.7.0",
     "bootstrap": "^5.3.3",
     "nuxt": "^3.12.3",
     "vue": "^3.4.31",
