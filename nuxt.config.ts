@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
 
   ssr: true,
   app: {
@@ -10,6 +10,10 @@ export default defineNuxtConfig({
         lang: 'it',
       },
     },
+  },
+
+  routeRules: {
+    '/': { prerender: true },
   },
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
@@ -26,5 +30,5 @@ export default defineNuxtConfig({
     viewer: true,
   },
 
-  compatibilityDate: '2024-07-12',
+  compatibilityDate: '2024-04-03',
 });
