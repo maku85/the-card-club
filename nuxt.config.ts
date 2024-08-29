@@ -13,7 +13,8 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true },
+    '/**': { isr: true },
+    '/api/**': { isr: false },
   },
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
