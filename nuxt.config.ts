@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     },
   },
 
+  routeRules: {
+    '/**': { prerender: true },
+    '/api/**': { ssr: false },
+  },
+
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
   nitro: {
