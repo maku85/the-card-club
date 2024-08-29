@@ -1,12 +1,13 @@
 <script setup lang="ts">
   const route = useRoute();
   const { slug } = route.params;
-  const { data: game } = await useAsyncData('game', () => queryContent(`/games/${slug}`).findOne());
+  const { data: game } = await useAsyncData('game', () =>
+    queryContent('games', slug).findOne()
+  );
   const [prev, next] = await queryContent()
-  .only(['_path', 'title'])
-  .sort({ date: 1})
-  .findSurround(`/games/${slug}`);
-
+    .only(['_path', 'title'])
+    .sort({ title: 1 })
+    .findSurround(`/games/${slug}`);
 </script>
 
 <template>

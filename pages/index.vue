@@ -21,7 +21,11 @@
         teams: filters.teams === 'true' ? { $eq: true } : { $ne: true },
       });
     }
-    return queryContent('games').where(whereConditions).find();
+    return queryContent('games')
+      .where(whereConditions)
+      .only(['_path', 'title', 'players', 'cards'])
+      .sort({ title: 1 })
+      .find();
   });
 
   function calculateColor(index: number) {
