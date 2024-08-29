@@ -12,11 +12,6 @@ export default defineNuxtConfig({
     },
   },
 
-  routeRules: {
-    '/**': { isr: true },
-    '/api/**': { isr: false },
-  },
-
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
   nitro: {
