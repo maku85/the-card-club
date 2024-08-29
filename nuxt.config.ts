@@ -18,6 +18,12 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
+  nitro: {
+    prerender: {
+      routes: ['/'],
+    },
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
