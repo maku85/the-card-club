@@ -1,9 +1,7 @@
 <script setup lang="ts">
   const route = useRoute();
   const { slug } = route.params;
-  const { data: game } = await useAsyncData('game', () =>
-    queryContent('games', slug).findOne()
-  );
+  const game = await queryContent('games', slug).findOne();
   const [prev, next] = await queryContent()
     .only(['_path', 'title'])
     .sort({ title: 1 })
