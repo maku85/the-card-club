@@ -13,10 +13,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { swr: 900 },
-    '/games': { swr: 900 },
-    '/games/**': { prerender: true, swr: 900 },
-    '/api/**': { isr: false },
+    '/**': { prerender: true },
   },
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
@@ -27,7 +24,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ['/'],
+      failOnError: false,
     },
   },
 
