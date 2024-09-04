@@ -32,3 +32,11 @@ Quando un giocatore raggiunge la combinazione corrispondente alla mano in corso,
 Il giocatore, dopo aver disposto le combinazioni sul tavolo e scartato, si ritrovi in possesso di una sola carta ouò decidere di "tagliare", ovvero concludere la mano e passare al conteggio dei punti. A lui vengono attribuiti 10, punti, 20, punti, 30 punti..a seconda della mano in cui ci si trova; agli altri i punti corrispondenti alle carte che hanno.
 Naturalmente, vince il giocatore che alla fine delle nove mani totalizza meno punti.
 ::
+
+::GameBlock{title="Valore delle carte" position="center" color="yellow-400"}
+Le carte che alla fine del gioco sono correttamente combinate hanno il seguente punteggio:
+- le figure valgono 10 punti;
+- l'asso vale 20 punti;
+- il jolly vale 50 punti;
+- il resto delle carte ha il suo valore nominale.
+::
