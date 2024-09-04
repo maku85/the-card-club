@@ -1,8 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
-  ssr: true,
   app: {
     baseURL: '/the-card-club/',
     head: {
@@ -12,21 +11,7 @@ export default defineNuxtConfig({
     },
   },
 
-  routeRules: {
-    '/**': { prerender: true },
-  },
-
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
-
-  content: {
-    documentDriven: true,
-  },
-
-  nitro: {
-    prerender: {
-      failOnError: false,
-    },
-  },
 
   postcss: {
     plugins: {
