@@ -21,6 +21,10 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
+  content: {
+    documentDriven: true,
+  },
+
   nitro: {
     prerender: {
       routes: ['/'],
