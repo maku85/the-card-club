@@ -8,7 +8,7 @@ players: '2'
 
 <!--more-->
 
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="end" color="red-600"}
 Il mazziere distribuisce 3 carte a ognuno dei giocatori, in senso orario e uno alla volta. Ne scopre una sul tavolo e su questa, che è la **briscola**, pone il tallone di traverso.
 
 I punti del mazzo sono sempre 120 e, per ogni smazzata, per vincere, visogna fare almeno 61 punti, altrimenti la mano è nulla.

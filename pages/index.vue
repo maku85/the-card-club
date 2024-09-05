@@ -51,7 +51,6 @@
         v-for="(game, index) in data"
         :key="game._path"
         class="w-1/2 md:w-auto"
-        :class="[data && data.length > 1 ? 'grow' : '']"
       >
         <div class="mx-2 my-2">
           <NuxtLink :to="game._path">

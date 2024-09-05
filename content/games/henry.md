@@ -6,7 +6,7 @@ maxPlayers: 1
 players: '1'
 ---
 
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Prima di mescolare vanno tolti tutti e quattro gli Assi, che vanno disposti, uno vicino all'altro, scoperti sul tavolo. A questo punto, dopo aver mescolato ed alzato, comincia il gioco vero e proprio.
 ::
 

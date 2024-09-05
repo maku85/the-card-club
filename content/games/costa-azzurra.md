@@ -6,7 +6,7 @@ maxPlayers: 1
 players: '1'
 ---
 
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Allineate le prime 2 carte, collocaondole il più a sinistra possibile, perchè, a meno che non vengano progressivamante eliminate in base ai criteri che vedremo, le altre andranno a formare una lunga fila verso destra. Se è necessario per mancanza di spazio, fate continuare la file verso il basso.
 ::
 

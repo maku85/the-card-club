@@ -6,7 +6,7 @@ maxPlayers: 4
 players: '4'
 ---
 
-::GameBlock{title="Obiettivo" position="end" color="red-500"}
+::GameBlock{title="Obiettivo" position="center" color="red-600"}
 Il gioco consiste nel combinare le carte prima degli altri gioctori, caricando così di punti gli avversari.
 Le due combinazioni possibili sono i tris e le scale di colore, minimo di quattro carte, che comunque possono essere circolari. In una combinazione è possibile giocare un solo jolly,
 Quando un giocatore ha tuttle le carte combinate eccetto una, che è quella con cui chiude, taglia il gioco e si calcolano i punti.

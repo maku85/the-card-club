@@ -6,7 +6,7 @@ maxPlayers: 1
 players: '1'
 ---
 
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Si prendono le prime sei carte e si mettono, scoperte, sul tavolo una accanto all'altra, in modo da formare una linea orizzontale. Sistemate queste sei carte, occorre osservare se è possibile liberare qualche posto. Questa situazione si verifica se vi sono due carte vicine che siano o dello stesso seme o dello stesso valore. Nel caso in cui ciò si verifichi allora si deve mettere la carta che sta alla destra sopra quella che è posta alla sinistra.
 ::
 

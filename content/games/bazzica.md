@@ -6,9 +6,7 @@ maxPlayers: 4
 players: '2-4'
 ---
 
-<!--more-->
-
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Si usano due mazzi da 52 carte ai quali sono stati tolte tutte le carte inferiori al 7, tranne l'Asso.
 
 Il mazziere da a ciascun giocatore, in tre volte, mazzetti da 3, 2 e 3, in modo che ognuno abbia, alla fine, una mano di 8 carte. La carta che segue viene messa in tavola scoperta: è la briscola. Se risulta un 7, il mazziere segna 10 punti. Il resto del mazzo si lascia coperto.
@@ -54,7 +52,7 @@ I punti si segnano man mano che la partita procede. Dopo aver fatto la sua dichi
 
 ::
 
-::GameBlock{title="Penalità" position="end" color="red-500"}
+::GameBlock{title="Penalità" position="end" color="red-600"}
 
 - se un giocatore pesca quando non è il suo turno, 10 punti all'avversario.
 - nel caso si abbiano più di otto carte in mano, 100 punti all'avversario.

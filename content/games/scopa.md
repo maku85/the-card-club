@@ -6,9 +6,7 @@ maxPlayers: 2
 players: '2'
 ---
 
-<!--more-->
-
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Il mazziere distribuisce 3 carte a ognuno dei giocatori e ne mette 4, scoperte, al centro del tavolo.
 ::
 

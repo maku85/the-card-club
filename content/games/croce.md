@@ -6,7 +6,7 @@ maxPlayers: 1
 players: '1'
 ---
 
-::GameBlock{title="Preparazione" position="end" color="red-500"}
+::GameBlock{title="Preparazione" position="center" color="red-600"}
 Si gioca con due mazzi di carte, Dopo aver mescolato, si toglie un asso qualsiasi e lo si mette al centro del tavolo. Attorno a questo asso, in modo da formare una specie di croce, si mettono otto carte; due a sinistra e due a destra, formando una linea orizzontale; due in alto e due in basso a formare una linea verticale. Queste otto carte costituiscono la riserva, che può essere utilizzata in ogni momento. Se nello scoprire le carte della riserva si venisse a trovare un Re, questo andrebbe posto agli angoli della croce.
 ::
 
