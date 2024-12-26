@@ -2,31 +2,36 @@
 title: 'Calabresella'
 cards: '40'
 minPlayers: 3
-maxPlayers: 3
-players: '3'
+maxPlayers: 7
+players: '3-7'
 ---
 
-::GameBlock{title="Preparazione" position="end" color="red-600"}
-Ogni giocatore parte con un certo numero di "fiches" (o punti) compreso tra i 200 e i 500. Il mazziere distribuisce ad ognuno 12 carte coperte, in mazzetti di 4. Le ultime 4 si mettono da parte: sono il "monte".
+## Obiettivo del gioco
 
-Prima di iniziare, ognuno può scambiare fino a 4 carte delle sue con quelle del "monte": in tal caso, lascia coperte quelle che ha scartato, ma mette sul tavolo, scoperte, quelle che ha pescato. Queste ultime andranno a chi si aggiudica la presa finale.
-::
+Ottenere più punti degli avversari per aggiudicarsi le smazzate.
 
-::GameBlock{title="Valore delle carte" position="center" color="cyan-400"}
-:cards{cards="three,two,ace,king,queen,jack,seven,six,five,four" cardStyle="italian"}
-Il 3 è la carta più altra, il 4 la più bassa.
-::
+## Preparazione
 
-::GameBlock{title="Come si gioca" position="start" color="blue-800"}
-Ciasuno a turno, partendo da chi siede alla sinistra del mazziere, sceglie se dichiarare o "passare". Se tutti e tre "passano", si manda a monte e si rifà il mazzo. Il primo che decide di annunciare gioca da solo contro gli altri due, che per quella mano saranno soci. Se non si può rispondere bisogna scartare. La persona che gioca la carta più alta appartenente al seme di partenza prende. Ogni coppia tiene le prese in un mazzo unico.
+Ogni giocatore riceve un numero uguale di carte. Se ci sono 3 o 6 giocatori, le ultime 4 carte formano il “monte”.
 
-Quando vince chi sta da solo, oguno dei suoi avversari gli paga una somma equivalente al suo punteggio finale, in "fiches". Se invece vincono i soci, sarà lo sfindante a dover dare a ciascuno di essi un tributo pari al loro punteggio finale per quella mano.
+## Svolgimento del gioco
 
-Il gioco va avanti fino a quando uno dei partecipanti perde tutte le sue "fiches"; vince chi ne ha di più.
-::
+Si gioca in senso antiorario.
+È obbligatorio rispondere al seme della prima carta giocata.
+I punti vengono conteggiati in base alle prese vinte.
 
-::GameBlock{title="Punteggi" position="center" color="yellow-400"}
-La parte che si aggiudica l'ultima presa aggiunge i punti del "monte", più altri 3. Il punteggio massimo è 35. Il punteggio finale è dato dalla differenza tra il totale realizzato dal singolo e quelli dei due soci.
+## Punteggio
 
-Le carte hanno i valori seguenti: Asso - 3 punti; 3, 2, Re, Donna, Fante - 1 punto.
-::
+Le carte hanno valori specifici:
+- 3 e 2 valgono 1 punto,
+- Asso, Re, Cavallo e Fante valgono 1/3 di punto,
+- 7, 6, 5 e 4 non hanno punteggio.
+
+## Condizioni di vittoria
+
+Se un giocatore vince tutte le prese, si parla di “cappotto” e raddoppia i punti.
+Se una squadra vince la maggior parte delle prese senza che gli avversari ne conquistino, si ha uno “stramazzo” che triplica i punti.
+
+## Fine del gioco
+
+Si stabilisce un limite di smazzate o punteggio, solitamente il primo a raggiungere 21 punti vince.
