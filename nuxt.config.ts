@@ -13,6 +13,12 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxtjs/tailwindcss'],
 
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
+
   postcss: {
     plugins: {
       tailwindcss: {},
