@@ -42,8 +42,8 @@ jobs:
 
       - name: Build with Nuxt
         run: pnpm run build
-        env:
-          NITRO_PRESET: github_pages
+      # env:
+      #   NITRO_PRESET: github_pages
 
       # - name: Static HTML export with Nuxt
       #   run: pnpm run generate
