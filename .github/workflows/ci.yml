@@ -41,7 +41,8 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build with Nuxt
-        run: pnpm run build
+      # run: pnpm run build
+        run: npx nuxt build --preset github_pages
       # env:
       #   NITRO_PRESET: github_pages
 
