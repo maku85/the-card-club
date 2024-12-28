@@ -19,7 +19,7 @@ jobs:
       - name: Setup PNPM 📦
         uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node 🚀
         uses: actions/setup-node@v4
