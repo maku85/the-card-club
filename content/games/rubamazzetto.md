@@ -1,5 +1,5 @@
 ---
-title: 'Rubamazzeto'
+title: 'Rubamazzetto'
 cards: '40/52'
 minPlayers: 2
 maxPlayers: 6
