@@ -1,29 +1,184 @@
 [
   {
-    "id": "scopa",
-    "name": "Scopa",
+    "id": "aluette",
+    "name": "Aluette",
+    "deck": "Speciali",
+    "italianSuit": null,
+    "suit": "🐄",
+    "players": [4, 4],
+    "minutes": 30,
+    "complexity": 3,
+    "tagline": "Il leggendario gioco della Mucca. Un antico duello a prese della Bretagna a mazzo spagnolo da 48 carte, smorfie codificate e tranelli.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["sancagna", "beccaccino", "zecchinetta"],
+    "tableSetup": {
+      "hand": 9,
+      "table": 0,
+      "deck": true,
+      "note": "9 in mano · senza briscola · mazzo spagnolo da 48 carte · cenni mimici ammessi"
+    }
+  },
+  {
+    "id": "asso-piglia-tutto",
+    "name": "Asso Piglia Tutto",
     "deck": "Napoletane",
     "italianSuit": "denari",
-    "suit": "♥",
-    "players": [
-      2,
-      4
-    ],
-    "minutes": 30,
+    "suit": "🂡",
+    "players": [2, 4],
+    "minutes": 25,
     "complexity": 1,
-    "tagline": "Spazza il tavolo. Quattro carte ben piazzate valgono più di mille.",
+    "tagline": "L'asso pigliatutto stravolge il tavolo. La variante della Scopa dove calare un Asso significa ripulire all'istante l'intero feltro.",
     "category": "Pesca",
     "partnerships": false,
-    "related": [
-      "scopone",
-      "asso-piglia-tutto",
-      "cirulla"
-    ],
+    "related": ["scopa", "scopone", "cirulla", "casita-robada"],
     "tableSetup": {
       "hand": 3,
       "table": 4,
       "deck": true,
-      "note": "3 in mano · 4 sul tavolo · mazzo da 40"
+      "note": "3 in mano · 4 sul tavolo · calare l'Asso cattura tutte le carte e vale come Scopa"
+    }
+  },
+  {
+    "id": "bauernschnapsen",
+    "name": "Bauernschnapsen",
+    "deck": "Tedeschi",
+    "italianSuit": null,
+    "suit": "🏔️",
+    "players": [4, 4],
+    "minutes": 20,
+    "complexity": 3,
+    "tagline": "La quintessenza delle osterie austriache. Una battaglia a coppie super-dinamica con un mazzo da 20 carte, contratti e alleanze.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["sancagna", "beccaccino", "watten"],
+    "tableSetup": {
+      "hand": 5,
+      "table": 0,
+      "deck": true,
+      "briscola": true,
+      "note": "5 in mano · briscola dichiarata dal mazziere o a sorpresa · mazzo da 20 carte (Ace-Ten)"
+    }
+  },
+  {
+    "id": "bazzica",
+    "name": "Bazzica",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "💎",
+    "players": [2, 2],
+    "minutes": 20,
+    "complexity": 2,
+    "tagline": "La Scopa a due ad alta tensione. Punteggi extra con le combinazioni in mano e sfide di 'Bazzica' che stravolgono la partita.",
+    "category": "Pesca",
+    "partnerships": false,
+    "related": ["scopa", "cirulla"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 4,
+      "deck": true,
+      "note": "3 in mano · 4 sul tavolo · dichiarazione combinazioni ad ogni mano"
+    }
+  },
+  {
+    "id": "beccaccino",
+    "name": "Beccaccino",
+    "deck": "Romagnole",
+    "italianSuit": null,
+    "suit": "🪶",
+    "players": [4, 4],
+    "minutes": 30,
+    "complexity": 3,
+    "tagline": "Il Tressette con la briscola e i canti della Romagna. Un capolavoro a coppie con Busso, Volo e Striscio.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["tressette", "spizzichino", "calabresella"],
+    "tableSetup": {
+      "hand": 10,
+      "table": 0,
+      "deck": false,
+      "note": "10 in mano · senza carte in tavola · con seme di Briscola dichiarato dal battezzante"
+    }
+  },
+  {
+    "id": "bestia",
+    "name": "Bestia",
+    "deck": "Napoletane",
+    "italianSuit": "coppe",
+    "suit": "♠",
+    "players": [4, 6],
+    "minutes": 30,
+    "complexity": 2,
+    "tagline": "Ogni presa vale un quinto del piatto. Fai attenzione: se resti a bocca asciutta, paghi tutto!",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["briscola", "tressette", "briscola-chiamata"],
+    "tableSetup": {
+      "hand": 5,
+      "table": 0,
+      "deck": true,
+      "briscola": true,
+      "note": "5 in mano · briscola scoperta sotto al mazzo"
+    }
+  },
+  {
+    "id": "bieten",
+    "name": "Bieten",
+    "deck": "Tedeschi",
+    "italianSuit": null,
+    "suit": "🦌",
+    "players": [3, 5],
+    "minutes": 15,
+    "complexity": 3,
+    "tagline": "Il segreto del Tirolo. Un'adrenalinica sfida alpina a 3 carte con il Weli jolly, combinazioni segrete e bluff spietati.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["watten", "bauernschnapsen", "sancagna"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 0,
+      "deck": true,
+      "note": "3 in mano · mazzo tedesco da 33 carte con il Weli (Jolly) · scommesse sulle Figure e sull'ultima presa"
+    }
+  },
+  {
+    "id": "binokel",
+    "name": "Binokel",
+    "deck": "Tedeschi",
+    "italianSuit": null,
+    "suit": "🍻",
+    "players": [3, 4],
+    "minutes": 25,
+    "complexity": 3,
+    "tagline": "L'orgoglio della Svevia. Il leggendario progenitore del Pinochle, tra aste accese, combinazioni ricche e sorpassi obbligatori.",
+    "category": "Accuse",
+    "partnerships": false,
+    "related": ["bieten", "bauernschnapsen", "watten"],
+    "tableSetup": {
+      "hand": 12,
+      "table": 4,
+      "deck": true,
+      "note": "12 in mano · 4 carte nel Tapp (monte) · scommesse, accuse ricche e obbligo di presa"
+    }
+  },
+  {
+    "id": "botifarra",
+    "name": "Botifarra",
+    "deck": "Spagnole",
+    "italianSuit": null,
+    "suit": "🏰",
+    "players": [4, 4],
+    "minutes": 30,
+    "complexity": 3,
+    "tagline": "La scienza catalana. Il superbo gioco di carte di Barcellona, dove regole di scarto ferree rendono la presa un esercizio di pura logica.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["aluette", "beccaccino", "watten"],
+    "tableSetup": {
+      "hand": 12,
+      "table": 0,
+      "deck": true,
+      "note": "12 in mano · mazzo spagnolo da 48 carte · scommesse Contrar/Recontrar e regole di scarto scientifiche"
     }
   },
   {
@@ -32,19 +187,13 @@
     "deck": "Napoletane",
     "italianSuit": "spade",
     "suit": "♦",
-    "players": [
-      2,
-      6
-    ],
+    "players": [2, 6],
     "minutes": 20,
     "complexity": 1,
     "tagline": "Un seme comanda su tutti. Memoria, segnali, e un asso da custodire.",
     "category": "Prese",
     "partnerships": false,
-    "related": [
-      "briscola-chiamata",
-      "tressette"
-    ],
+    "related": ["briscola-chiamata", "tressette", "bestia", "marianna"],
     "tableSetup": {
       "hand": 3,
       "table": 0,
@@ -54,30 +203,433 @@
     }
   },
   {
+    "id": "briscola-31",
+    "name": "Briscola a 31",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "🍺",
+    "players": [2, 2],
+    "minutes": 5,
+    "complexity": 2,
+    "tagline": "La sfida fulminea dell'osteria. Chi arriva prima a 31 punti interrompe il gioco e vince, ma attento a contare bene per non regalare la vittoria!",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["scopa", "marianna", "asso-piglia-tutto"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 0,
+      "deck": true,
+      "note": "3 in mano · briscola fissa · partita fulminea a 31 punti · dichiarazione a chiamata immediata"
+    }
+  },
+  {
+    "id": "briscola-chiamata",
+    "name": "Briscola Chiamata",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "🃏",
+    "players": [5, 5],
+    "minutes": 30,
+    "complexity": 3,
+    "tagline": "Due contro tre, ma nessuno sa chi gioca con chi. Alleanze segrete, bluff e colpi di scena.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["briscola", "tressette", "bestia", "briscolone", "calabresella"],
+    "tableSetup": {
+      "hand": 8,
+      "table": 0,
+      "deck": false,
+      "note": "8 in mano · tutte le carte distribuite"
+    }
+  },
+  {
+    "id": "briscola-scoperta",
+    "name": "Briscola Scoperta",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "👁️",
+    "players": [2, 2],
+    "minutes": 15,
+    "complexity": 3,
+    "tagline": "La scacchiera della Briscola. Un duello a carte scoperte in cui l'informazione perfetta trasforma la presa in una battaglia di pura strategia.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["briscola-31", "scopa", "marianna"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 1,
+      "deck": true,
+      "note": "3 in mano (scoperte) · briscola fissa · cima del tallone scoperta · informazione perfetta stile scacchi"
+    }
+  },
+  {
+    "id": "briscolone",
+    "name": "Briscolone",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "⚔️",
+    "players": [2, 2],
+    "minutes": 15,
+    "complexity": 2,
+    "tagline": "Il duello dei giganti. Cinque carte in mano, nessun seme di briscola e l'obbligo di rispondere al seme.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["briscola", "tressette", "briscola-chiamata"],
+    "tableSetup": {
+      "hand": 5,
+      "table": 0,
+      "deck": true,
+      "briscola": false,
+      "note": "5 in mano · senza briscola · obbligo di rispondere al seme"
+    }
+  },
+  {
+    "id": "burro",
+    "name": "Burro",
+    "deck": "Spagnole",
+    "italianSuit": null,
+    "suit": "🫏",
+    "players": [2, 8],
+    "minutes": 10,
+    "complexity": 1,
+    "tagline": "L'adrenalinica rincorsa allo scarto. Rispondi al seme o pesca a oltranza gonfiando la tua mano... ed evita di rimanere l'ultimo asino al tavolo!",
+    "category": "Scarto",
+    "partnerships": false,
+    "related": ["botifarra", "aluette", "beccaccino"],
+    "tableSetup": {
+      "hand": 4,
+      "table": 0,
+      "deck": true,
+      "note": "4 in mano · scarto ed inflazione · pesca obbligatoria finché non si risponde al seme · variante portoghese a torre instabile (Λ)"
+    }
+  },
+  {
+    "id": "busca",
+    "name": "Busca",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "🪙",
+    "players": [4, 4],
+    "minutes": 25,
+    "complexity": 3,
+    "tagline": "L'arte emiliana del Ciapanò. Un Tressette a perdere spietato in cui chi prende l'Asso di Denari (La Pita) piange, ma attento a non fare zero punti!",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["scopa", "marianna", "briscola-scoperta"],
+    "tableSetup": {
+      "hand": 10,
+      "table": 0,
+      "deck": true,
+      "note": "10 in mano · Tressette a perdere (Ciapanò) · Asso di Denari (La Pita) a 8 punti · penalità busche"
+    }
+  },
+  {
+    "id": "calabresella",
+    "name": "Calabresella",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "👑",
+    "players": [3, 3],
+    "minutes": 25,
+    "complexity": 3,
+    "tagline": "Due contro uno. Tre carte dominanti, nessun seme di briscola, licitazione e l'insidia del monte.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["tressette", "briscola-chiamata"],
+    "tableSetup": {
+      "hand": 12,
+      "table": 4,
+      "deck": false,
+      "note": "12 in mano · 4 nel monte sul tavolo · senza briscola"
+    }
+  },
+  {
+    "id": "camicia",
+    "name": "Camicia",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "👕",
+    "players": [2, 2],
+    "minutes": 10,
+    "complexity": 1,
+    "tagline": "Il classico Ruba Camicia. Un duello frenetico all'ultima carta, tra attacchi implacabili, contrattacchi a sorpresa e capovolgimenti continui.",
+    "category": "Scarto",
+    "partnerships": false,
+    "related": ["scopa", "marianna", "briscola-31"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 1,
+      "deck": true,
+      "note": "20 a testa coperti · pesca automatica · carte d'attacco (Asso, Due, Tre) · contrattacchi a catena"
+    }
+  },
+  {
+    "id": "casita-robada",
+    "name": "Casita Robada",
+    "deck": "Spagnole",
+    "italianSuit": null,
+    "suit": "🏠",
+    "players": [2, 4],
+    "minutes": 15,
+    "complexity": 1,
+    "tagline": "Costruisci la tua casa e deruba i vicini. Un gioco di cattura frenetico dove il mazzo dell'avversario può diventare tuo in un attimo.",
+    "category": "Pesca",
+    "partnerships": false,
+    "related": ["scopa", "cirulla"],
+    "tableSetup": {
+      "hand": 4,
+      "table": 4,
+      "deck": true,
+      "note": "4 in mano · 4 sul tavolo · mazzo spagnolo da 40 carte"
+    }
+  },
+  {
+    "id": "ciapano",
+    "name": "Ciapanò",
+    "deck": "Milanesi",
+    "italianSuit": null,
+    "suit": "🚫",
+    "players": [3, 5],
+    "minutes": 25,
+    "complexity": 3,
+    "tagline": "L'antitesi del Tressette. Fai di tutto per non prendere punti, ma fai attenzione: se un avversario prende tutto, realizzerà il temutissimo Cappotto a tue spese!",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["busca", "beccaccino", "briscola-scoperta"],
+    "tableSetup": {
+      "hand": 10,
+      "table": 0,
+      "deck": false,
+      "note": "Fino a 13 in mano · Tressette a perdere (Traversone) · obbligo di seme · penalità per i punti e premio per il Cappotto"
+    }
+  },
+  {
+    "id": "cicera",
+    "name": "Cicera",
+    "deck": "Bresciane",
+    "italianSuit": "spade",
+    "suit": "♠",
+    "players": [4, 4],
+    "minutes": 40,
+    "complexity": 2,
+    "tagline": "La regina di Brescia. Un mazzo da 52 carte, catture ad addizione e quattro punti speciali durante il gioco.",
+    "category": "Pesca",
+    "partnerships": true,
+    "related": ["scopa", "cirulla"],
+    "tableSetup": {
+      "hand": 12,
+      "table": 4,
+      "deck": false,
+      "note": "12 in mano · 4 sul tavolo · mazzo bresciano da 52 carte"
+    }
+  },
+  {
+    "id": "cirulla",
+    "name": "Cirulla",
+    "deck": "Genovesi",
+    "italianSuit": null,
+    "suit": "♦",
+    "players": [2, 4],
+    "minutes": 30,
+    "complexity": 2,
+    "tagline": "L'anti-Scopone genovese. Ritmo travolgente, bonus in mano, la regola del 15 e il Sette di Cuori che cambia le regole.",
+    "category": "Pesca",
+    "partnerships": true,
+    "related": ["scopa", "cicera"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 4,
+      "deck": true,
+      "note": "3 in mano · 4 sul tavolo · mazzo genovese da 40 carte"
+    }
+  },
+  {
+    "id": "marianna",
+    "name": "Marianna",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "👑",
+    "players": [2, 4],
+    "minutes": 20,
+    "complexity": 2,
+    "tagline": "Il matrimonio regale della Briscola. Un capolavoro di coppie in cui i matrimoni cambiano briscola all'improvviso, tra Mariannine e Mariannoni.",
+    "category": "Accuse",
+    "partnerships": true,
+    "related": ["scopa", "asso-piglia-tutto", "scala40"],
+    "tableSetup": {
+      "hand": 5,
+      "table": 0,
+      "deck": true,
+      "note": "5 in mano · briscola dinamica · accuse (Marianna, Mariannino, Mariannone) · traguardo a 501 o 151 punti"
+    }
+  },
+  {
+    "id": "sancagna",
+    "name": "Sancagna",
+    "deck": "Speciali",
+    "italianSuit": null,
+    "suit": "⚓",
+    "players": [4, 4],
+    "minutes": 20,
+    "complexity": 3,
+    "tagline": "Il segreto dei pescatori di Burano. Un'avvincente battaglia a prese con un mazzo veneto da 52 carte, gerarchie stravolte e cenni silenziosi.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["tressette", "beccaccino", "briscola-chiamata"],
+    "tableSetup": {
+      "hand": 6,
+      "table": 1,
+      "deck": true,
+      "briscola": true,
+      "note": "6 in mano · briscola scoperta sul tavolo · mazzo veneto da 52 carte"
+    }
+  },
+  {
+    "id": "scala-40",
+    "name": "Scala 40",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🃏",
+    "players": [2, 6],
+    "minutes": 30,
+    "complexity": 2,
+    "tagline": "Il re indiscusso dei giochi di combinazione italiani, tra calate da 40 punti, scarti calcolati e la caccia al jolly.",
+    "category": "Rummy",
+    "partnerships": false,
+    "related": ["cirulla"],
+    "tableSetup": {
+      "hand": 13,
+      "table": 1,
+      "deck": true,
+      "note": "13 in mano · 1 carta scoperta per gli scarti · doppio mazzo francese con 4 Jolly"
+    }
+  },
+  {
+    "id": "scopa",
+    "name": "Scopa",
+    "deck": "Napoletane",
+    "italianSuit": "denari",
+    "suit": "♥",
+    "players": [2, 4],
+    "minutes": 30,
+    "complexity": 1,
+    "tagline": "Spazza il tavolo. Quattro carte ben piazzate valgono più di mille.",
+    "category": "Pesca",
+    "partnerships": false,
+    "related": ["scopone", "asso-piglia-tutto", "cirulla", "cicera", "casita-robada", "bazzica"],
+    "tableSetup": {
+      "hand": 3,
+      "table": 4,
+      "deck": true,
+      "note": "3 in mano · 4 sul tavolo · mazzo da 40"
+    }
+  },
+  {
+    "id": "scopone",
+    "name": "Scopone",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "🤝",
+    "players": [4, 4],
+    "minutes": 30,
+    "complexity": 3,
+    "tagline": "Il re dei giochi di pesca. Silenzio e intesa tra compagni nella variante 'Scientifica' da 10 carte a testa.",
+    "category": "Pesca",
+    "partnerships": true,
+    "related": ["scopa", "cirulla", "cicera", "bazzica"],
+    "tableSetup": {
+      "hand": 9,
+      "table": 4,
+      "deck": false,
+      "note": "9 in mano e 4 sul tavolo · Oppure 10 in mano (Scopone Scientifico) · senza tallone"
+    }
+  },
+  {
+    "id": "spizzichino",
+    "name": "Spizzichino",
+    "deck": "Napoletane",
+    "italianSuit": null,
+    "suit": "⚜️",
+    "players": [2, 2],
+    "minutes": 20,
+    "complexity": 3,
+    "tagline": "Il Tressette a due per eccellenza. Carte coperte in tavola, 'pizzichi' da raccogliere e combinazioni micidiali di Buongiochi.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": ["tressette", "calabresella"],
+    "tableSetup": {
+      "hand": 10,
+      "table": 10,
+      "deck": false,
+      "note": "10 in mano · 10 coperte sul tavolo in pile da 5 · senza briscola"
+    }
+  },
+  {
     "id": "tressette",
     "name": "Tressette",
     "deck": "Napoletane",
     "italianSuit": "bastoni",
     "suit": "♣",
-    "players": [
-      4,
-      4
-    ],
+    "players": [4, 4],
     "minutes": 45,
     "complexity": 2,
     "tagline": "Silenzio in tavola. Si parla solo con le carte e con tre cenni.",
     "category": "Prese",
     "partnerships": true,
     "related": [
-      "marafone",
+      "beccaccino",
       "scopone",
-      "briscola"
+      "briscola",
+      "bestia",
+      "briscola-chiamata",
+      "calabresella",
+      "spizzichino"
     ],
     "tableSetup": {
       "hand": 10,
       "table": 0,
       "deck": false,
       "note": "10 in mano · nessuna scoperta · senza briscola"
+    }
+  },
+  {
+    "id": "watten",
+    "name": "Watten",
+    "deck": "Tedeschi",
+    "italianSuit": null,
+    "suit": "🏔️",
+    "players": [2, 4],
+    "minutes": 15,
+    "complexity": 2,
+    "tagline": "La voce delle Alpi. Il mitico gioco tirolese e bavarese di bluff spietati, scommesse crescenti e intese silenziose col compagno.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["bieten", "bauernschnapsen", "binokel"],
+    "tableSetup": {
+      "hand": 5,
+      "table": 0,
+      "deck": true,
+      "note": "5 in mano · bluff, scommesse crescenti · mazzo tedesco da 32/33 carte con il Weli jolly"
+    }
+  },
+  {
+    "id": "zecchinetta",
+    "name": "Zecchinetta",
+    "deck": "Siciliane",
+    "italianSuit": null,
+    "suit": "💰",
+    "players": [2, 10],
+    "minutes": 15,
+    "complexity": 1,
+    "tagline": "Il leggendario gioco d'azzardo siciliano nato dai lanzichenecchi. Un'adrenalinica sfida contro il banco tra carte franche e carte male.",
+    "category": "Banco",
+    "partnerships": false,
+    "related": ["bestia"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 3,
+      "deck": true,
+      "note": "Scommesse e puro banco · mazzo siciliano da 40 carte · i giocatori puntano sulle carte sul tavolo"
     }
   }
 ]
