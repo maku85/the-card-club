@@ -1,0 +1,83 @@
+[
+  {
+    "id": "scopa",
+    "name": "Scopa",
+    "deck": "Napoletane",
+    "italianSuit": "denari",
+    "suit": "♥",
+    "players": [
+      2,
+      4
+    ],
+    "minutes": 30,
+    "complexity": 1,
+    "tagline": "Spazza il tavolo. Quattro carte ben piazzate valgono più di mille.",
+    "category": "Pesca",
+    "partnerships": false,
+    "related": [
+      "scopone",
+      "asso-piglia-tutto",
+      "cirulla"
+    ],
+    "tableSetup": {
+      "hand": 3,
+      "table": 4,
+      "deck": true,
+      "note": "3 in mano · 4 sul tavolo · mazzo da 40"
+    }
+  },
+  {
+    "id": "briscola",
+    "name": "Briscola",
+    "deck": "Napoletane",
+    "italianSuit": "spade",
+    "suit": "♦",
+    "players": [
+      2,
+      6
+    ],
+    "minutes": 20,
+    "complexity": 1,
+    "tagline": "Un seme comanda su tutti. Memoria, segnali, e un asso da custodire.",
+    "category": "Prese",
+    "partnerships": false,
+    "related": [
+      "briscola-chiamata",
+      "tressette"
+    ],
+    "tableSetup": {
+      "hand": 3,
+      "table": 0,
+      "deck": true,
+      "briscola": true,
+      "note": "3 in mano · briscola scoperta sotto al mazzo"
+    }
+  },
+  {
+    "id": "tressette",
+    "name": "Tressette",
+    "deck": "Napoletane",
+    "italianSuit": "bastoni",
+    "suit": "♣",
+    "players": [
+      4,
+      4
+    ],
+    "minutes": 45,
+    "complexity": 2,
+    "tagline": "Silenzio in tavola. Si parla solo con le carte e con tre cenni.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": [
+      "marafone",
+      "scopone",
+      "briscola"
+    ],
+    "tableSetup": {
+      "hand": 10,
+      "table": 0,
+      "deck": false,
+      "note": "10 in mano · nessuna scoperta · senza briscola"
+    }
+  }
+]

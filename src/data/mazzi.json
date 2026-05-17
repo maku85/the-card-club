@@ -1,0 +1,35 @@
+{
+  "Napoletane": {
+    "title": "Carte napoletane",
+    "eyebrow": "Mazzo italiano · 40 carte",
+    "blurb": "Il mazzo italiano per eccellenza, diffuso dalla Campania in giù. Quaranta carte numerate da uno a sette più re, cavallo e fante, divise in coppe, denari, bastoni e spade.",
+    "suits": ["coppe", "denari", "bastoni", "spade"],
+    "notes": [
+      "Le coppe e le spade sono retaggio del mazzo arabo da cui discendono tutti i giochi europei.",
+      "Senza otto, nove e dieci: l'asso vale uno, la figura vale dieci nel conteggio.",
+      "Esistono varianti regionali quasi identiche: siciliane, piacentine, romagnole, trevisane."
+    ]
+  },
+  "Francesi": {
+    "title": "Carte francesi",
+    "eyebrow": "Mazzo internazionale · 52 (+ jolly)",
+    "blurb": "Il mazzo che il mondo ha adottato. Cuori e quadri rossi, picche e fiori neri; tredici carte per seme dall'asso al re più i jolly.",
+    "suits": ["♥", "♦", "♠", "♣"],
+    "notes": [
+      "Asso, due, three… dieci, fante (J), donna (Q), re (K). Più due jolly.",
+      "In Italia si usa per Scala 40, Burraco, Ramino, Bridge, Poker e tutti i solitari.",
+      "Le figure mantengono iconografie storiche: il re di cuori senza baffi, la donna di picche con scettro."
+    ]
+  },
+  "Speciali": {
+    "title": "Mazzi speciali",
+    "eyebrow": "Mazzi dedicati a un singolo gioco",
+    "blurb": "Mazzi pensati per giochi specifici. Le carte non sono numerate ma rappresentano figure tematiche, e si comprano col regolamento incluso nella scatola.",
+    "suits": [],
+    "notes": [
+      "Il mazzo del Cucù ha figure proprie come il Matto, il Cucù, il Bragone, il Secchio.",
+      "Il Mercante in fiera comprende due mazzi gemelli con illustrazioni a coppia.",
+      "Tarocchi e altri mazzi divinatori, pur usabili per giochi (tarocco bolognese, piemontese), sono storia a parte."
+    ]
+  }
+}

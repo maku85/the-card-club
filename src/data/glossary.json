@@ -1,0 +1,66 @@
+[
+  {
+    "term": "Briscola",
+    "defn": "Il seme che, una volta dichiarato, batte gli altri tre per tutta la durata della mano."
+  },
+  {
+    "term": "Busso",
+    "defn": "Cenno del Tressette: si batte sul tavolo per chiedere al compagno la sua carta più alta del seme di apertura."
+  },
+  { "term": "Cala", "defn": "L'azione di mettere una carta in tavola." },
+  {
+    "term": "Cappotto",
+    "defn": "Vincere una partita totalizzando tutti i punti, lasciando l'avversario a zero."
+  },
+  { "term": "Carico", "defn": "Una carta di valore alto (asso, tre, figura), che vale punti." },
+  {
+    "term": "Liscio",
+    "defn": "Carta di basso valore: non porta punti, serve a non sprecare le buone."
+  },
+  {
+    "term": "Mano",
+    "defn": "L'insieme delle carte che un giocatore tiene; per estensione, il giro completo di una partita."
+  },
+  {
+    "term": "Marafona",
+    "defn": "Possesso simultaneo di asso, due e tre di briscola: vale 3 punti."
+  },
+  {
+    "term": "Matta",
+    "defn": "Carta jolly che assume il valore richiesto. Nel sette e mezzo è il re di denari."
+  },
+  {
+    "term": "Napoli",
+    "defn": "Combinazione di asso, due e tre dello stesso seme dichiarata nel Tressette: vale 3 punti."
+  },
+  {
+    "term": "Pinella",
+    "defn": "Il 2 nel Burraco: può sostituire qualsiasi carta nelle scale (ma non in tris e poker)."
+  },
+  { "term": "Pozzetto", "defn": "Mazzetto da 11 carte nel Burraco; va preso prima di chiudere." },
+  { "term": "Presa", "defn": "Vincere il giro raccogliendo le carte calate." },
+  {
+    "term": "Primiera",
+    "defn": "Combinazione della Scopa: una carta per ciascuno dei quattro semi, con il punteggio più alto possibile."
+  },
+  {
+    "term": "Rebellotta",
+    "defn": "Quando si vincono tutti e quattro i punti del conteggio Scopa: carte, denari, settebello, primiera."
+  },
+  {
+    "term": "Scala",
+    "defn": "Sequenza di carte consecutive dello stesso seme. Almeno tre per essere valida."
+  },
+  { "term": "Scarto", "defn": "Carta che si depone scoperta per chiudere il proprio turno." },
+  { "term": "Scopa", "defn": "Catturare tutte le carte rimaste sul tavolo: vale un punto." },
+  { "term": "Settebello", "defn": "Il sette di denari: vale un punto fisso nella Scopa." },
+  {
+    "term": "Striscio",
+    "defn": "Cenno del Tressette: si striscia la carta sul tavolo per dire al compagno «ne ho ancora di questo seme»."
+  },
+  { "term": "Tallone", "defn": "Il mazzo coperto da cui si pesca." },
+  {
+    "term": "Volo",
+    "defn": "Cenno del Tressette: si fa volare la carta in alto per dire «non ne ho più, è l'ultima»."
+  }
+]
