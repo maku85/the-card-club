@@ -1,5 +1,14 @@
 export type ItalianSuit = 'coppe' | 'denari' | 'bastoni' | 'spade';
-export type Deck = 'Napoletane' | 'Francesi' | 'Speciali';
+export type Deck =
+  | 'Napoletane'
+  | 'Bresciane'
+  | 'Genovesi'
+  | 'Spagnole'
+  | 'Romagnole'
+  | 'Siciliane'
+  | 'Francesi'
+  | 'Tedeschi'
+  | 'Speciali';
 export type Complexity = 1 | 2 | 3;
 export type GameCategory = 'Pesca' | 'Prese' | 'Rummy' | 'Banco' | 'Solitario' | 'Party';
 
@@ -38,6 +47,11 @@ export interface MazzoEntry {
   blurb: string;
   suits: string[];
   notes: string[];
+  composition?: string;
+  diffusion?: string;
+  classicGames?: string[];
+  signatureCard?: { name: string; desc: string };
+  trivia?: string;
 }
 
 export type MazziData = Record<string, MazzoEntry>;

@@ -6,7 +6,21 @@ import { Combinatore, GlossarioModal, MazziModal } from '@/components/Modals';
 import { useFavorites } from '@/hooks/useFavorites';
 import type { Complexity, Game, GameCategory, GameRules, GlossaryEntry, MazziData } from '@/types';
 
-const DECKS = ['Napoletane', 'Francesi', 'Speciali'] as const;
+const DECKS = ['Latini', 'Francesi', 'Tedeschi', 'Speciali'] as const;
+
+const DECK_TO_TAB: Record<string, string> = {
+  Napoletane: 'Latini',
+  Romagnole: 'Latini',
+  Siciliane: 'Latini',
+  Bresciane: 'Latini',
+  Spagnole: 'Latini',
+  Piacentine: 'Latini',
+  Francesi: 'Francesi',
+  Genovesi: 'Francesi',
+  Tedeschi: 'Tedeschi',
+  Speciali: 'Speciali',
+};
+
 const CATEGORIES: GameCategory[] = ['Pesca', 'Prese', 'Rummy', 'Banco', 'Solitario', 'Party'];
 
 interface Bucket<T> {
@@ -84,14 +98,16 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
     return games.filter((g) => {
       if (query) {
         const q = query.toLowerCase();
+        const parentDeck = (DECK_TO_TAB[g.deck] || '').toLowerCase();
         if (
           !g.name.toLowerCase().includes(q) &&
           !g.tagline.toLowerCase().includes(q) &&
-          !g.deck.toLowerCase().includes(q)
+          !g.deck.toLowerCase().includes(q) &&
+          !parentDeck.includes(q)
         )
           return false;
       }
-      if (decks.length && !decks.includes(g.deck)) return false;
+      if (decks.length && !decks.includes(DECK_TO_TAB[g.deck] || g.deck)) return false;
       if (playerBucket) {
         const pb = PLAYER_BUCKETS.find((b) => b.label === playerBucket);
         if (!pb?.test(g.players)) return false;

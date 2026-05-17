@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import type React from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import type { Game, GlossaryEntry, MazziData } from '@/types';
@@ -17,6 +18,16 @@ const ITALIAN_SUIT_COMPS: Record<string, React.ComponentType<{ size?: number }>>
   bastoni: BastoniIcon,
   spade: SpadeIcon,
 };
+
+function renderFormattedText(text: string): React.ReactNode {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
 
 interface ModalProps {
   open: boolean;
@@ -87,10 +98,23 @@ interface MazziModalProps {
   mazzi: MazziData;
 }
 
+const DECK_TO_TAB: Record<string, string> = {
+  Napoletane: 'Latini',
+  Romagnole: 'Latini',
+  Siciliane: 'Latini',
+  Bresciane: 'Latini',
+  Spagnole: 'Latini',
+  Piacentine: 'Latini',
+  Francesi: 'Francesi',
+  Genovesi: 'Francesi',
+  Tedeschi: 'Tedeschi',
+  Speciali: 'Speciali',
+};
+
 export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziModalProps) {
-  const [tab, setTab] = useState('Napoletane');
+  const [tab, setTab] = useState('Latini');
   const m = mazzi[tab];
-  const linkedGames = games.filter((g) => g.deck === tab);
+  const linkedGames = games.filter((g) => DECK_TO_TAB[g.deck] === tab);
 
   return (
     <Modal open={open} onClose={onClose} size="lg">
@@ -127,34 +151,103 @@ export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziMod
       )}
 
       <section className="sheet-body">
+        {/* Immagine di copertina premium */}
+        <div className="mazzi-cover-container">
+          <Image
+            src={`/images/decks/${tab.toLowerCase()}.png`}
+            alt={`${m.title} Cover`}
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            priority
+            className="mazzi-cover-img"
+          />
+        </div>
+
+        {/* Griglia di metadati tecnici */}
+        {(m.composition || m.diffusion) && (
+          <div className="mazzi-specs-grid">
+            {m.composition && (
+              <div className="mazzi-spec-card">
+                <span className="mazzi-spec-label">Composizione</span>
+                <span className="mazzi-spec-value">{m.composition}</span>
+              </div>
+            )}
+            {m.diffusion && (
+              <div className="mazzi-spec-card">
+                <span className="mazzi-spec-label">Diffusione</span>
+                <span className="mazzi-spec-value">{m.diffusion}</span>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Grandi Classici Storici */}
+        {m.classicGames && m.classicGames.length > 0 && (
+          <div className="mazzi-classics">
+            <h3>Grandi Classici Storici</h3>
+            <div className="mazzi-classics-list">
+              {m.classicGames.map((cg) => (
+                <span className="mazzi-classic-tag" key={cg}>
+                  {cg}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         <h3>Da sapere</h3>
         <ul>
           {m.notes.map((n, i) => (
-            <li key={i}>{n}</li>
+            <li key={i}>{renderFormattedText(n)}</li>
           ))}
         </ul>
 
-        <h3>Giochi con questo mazzo</h3>
-        <div className="mazzi-games">
-          {linkedGames.map((g) => (
-            <button
-              type="button"
-              key={g.id}
-              className="mazzi-game"
-              onClick={() => {
-                onClose();
-                onPickGame(g);
-              }}
-            >
-              <span className="mazzi-game-name">{g.name}</span>
-              <span className="mazzi-game-meta">
-                {g.minutes < 60 ? `${g.minutes}'` : `${Math.floor(g.minutes / 60)}h`} &middot;{' '}
-                {g.players[0] === g.players[1] ? g.players[0] : `${g.players[0]}–${g.players[1]}`}{' '}
-                giocatori
-              </span>
-            </button>
-          ))}
-        </div>
+        {/* La Carta Simbolo */}
+        {m.signatureCard && (
+          <div className="mazzi-signature-card">
+            <h3>La Carta Simbolo: {m.signatureCard.name}</h3>
+            <p>{m.signatureCard.desc}</p>
+          </div>
+        )}
+
+        {/* Aneddoto e Curiosità */}
+        {m.trivia && (
+          <div className="mazzi-trivia-banner">
+            <span className="mazzi-trivia-icon">💡</span>
+            <div className="mazzi-trivia-content">
+              <span className="mazzi-trivia-label">Curiosità & Superstizione</span>
+              <p className="mazzi-trivia-text">{m.trivia}</p>
+            </div>
+          </div>
+        )}
+
+        {linkedGames.length > 0 && (
+          <>
+            <h3>Giochi con questo mazzo</h3>
+            <div className="mazzi-games">
+              {linkedGames.map((g) => (
+                <button
+                  type="button"
+                  key={g.id}
+                  className="mazzi-game"
+                  onClick={() => {
+                    onClose();
+                    onPickGame(g);
+                  }}
+                >
+                  <span className="mazzi-game-name">{g.name}</span>
+                  <span className="mazzi-game-meta">
+                    {g.minutes < 60 ? `${g.minutes}'` : `${Math.floor(g.minutes / 60)}h`} &middot;{' '}
+                    {g.players[0] === g.players[1]
+                      ? g.players[0]
+                      : `${g.players[0]}–${g.players[1]}`}{' '}
+                    giocatori
+                  </span>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </section>
     </Modal>
   );

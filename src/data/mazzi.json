@@ -1,35 +1,120 @@
 {
-  "Napoletane": {
-    "title": "Carte napoletane",
-    "eyebrow": "Mazzo italiano · 40 carte",
-    "blurb": "Il mazzo italiano per eccellenza, diffuso dalla Campania in giù. Quaranta carte numerate da uno a sette più re, cavallo e fante, divise in coppe, denari, bastoni e spade.",
+  "Latini": {
+    "title": "Semi Latini (Regionali)",
+    "eyebrow": "Mazzi Italiani e Iberici · 40 carte · Semi Latini",
+    "blurb": "La grande famiglia dei mazzi regionali a semi latini (Coppe, Denari, Bastoni, Spade), discendenti diretti delle carte dei Mamelucchi egiziani del XIV secolo. Comprende le varianti Napoletane, Siciliane, Piacentine, Romagnole, Bresciane e Spagnole.",
+    "composition": "40 carte (10 per seme: Asso, 2-7, Fante, Cavallo, Re)",
+    "diffusion": "Italia Centro-Meridionale, Spagna, Portogallo, America Latina",
+    "classicGames": [
+      "Briscola",
+      "Scopa",
+      "Tressette",
+      "Scopone",
+      "Bestia",
+      "Calabresella",
+      "Truco",
+      "Mus"
+    ],
+    "signatureCard": {
+      "name": "Il Tre di Bastoni / L'Asso di Denari",
+      "desc": "Il Tre di Bastoni è celebre per il mascherone antropomorfo centrale, inserito storicamente dai fabbricanti come firma o come simbolo apotropaico contro il malocchio e le truffe al tavolo. L'Asso di Denari presenta un'aquila araldica con un cerchio centrale vuoto, originariamente destinato ad accogliere il timbro del dazio statale."
+    },
+    "trivia": "Tradizione vuole che durante una partita a Scopa o Briscola, sfiorare con delicatezza l'aquila o la moneta centrale dell'Asso di Denari attiri la fortuna per la smazzata successiva.",
     "suits": ["coppe", "denari", "bastoni", "spade"],
     "notes": [
-      "Le coppe e le spade sono retaggio del mazzo arabo da cui discendono tutti i giochi europei.",
-      "Senza otto, nove e dieci: l'asso vale uno, la figura vale dieci nel conteggio.",
-      "Esistono varianti regionali quasi identiche: siciliane, piacentine, romagnole, trevisane."
+      "**I Semi Latini Originali:** Coppe, Spade, Bastoni e Denari sono i simboli introdotti in Occidente nel XIV secolo, rimasti intatti nel mazzo napoletano e nelle varianti regionali italiane.",
+      "**La Struttura del Mazzo:** Si compone di 40 carte: dall'Asso al Sette più le tre figure intere (Re, Cavallo, Fante). L'Asso vale 1, mentre le figure valgono 10 o hanno punteggi dedicati (es. Tressette).",
+      "**Iconografia e Curiosità:** Il mazzo napoletano è ricco di dettagli tradizionali. Il Tre di Bastoni raffigura un mascherone antropomorfo al centro; l'Asso di Denari rappresenta una grande aquila reale; i fanti sono spesso scambiati per donne a causa delle vesti lunghe, ma sono in realtà giovani soldati o servitori.",
+      "**Suddivisione in Famiglie Italiane:** I mazzi regionali italiani si dividono in due stili: lo **Stile Meridionale** (Napoletane, Siciliane, Piacentine, Romagnole) a carte corte e figure intere con bastoni e spade separati; e lo **Stile Settentrionale** (Trevisane, Trentine, Triestine, Bolognesi) a carte più strette, figure a specchio e bastoni/spade stilizzati e intrecciati a traliccio."
     ]
   },
   "Francesi": {
-    "title": "Carte francesi",
-    "eyebrow": "Mazzo internazionale · 52 (+ jolly)",
-    "blurb": "Il mazzo che il mondo ha adottato. Cuori e quadri rossi, picche e fiori neri; tredici carte per seme dall'asso al re più i jolly.",
+    "title": "Semi Francesi (Internazionali)",
+    "eyebrow": "Mazzo internazionale e regionale · 52 carte (+ Jolly) o 40 carte",
+    "blurb": "Il mazzo di carte più diffuso al mondo, nato in Francia nel XV secolo per semplificare la produzione di massa. Comprende sia il mazzo internazionale da 52 carte (Poker, Bridge) sia i mazzi regionali a semi francesi (Genovesi, Milanesi, Piemontesi, Toscane).",
+    "composition": "52 carte (13 per seme: Asso, 2-10, Jack, Queen, King) + 2 Jolly, o 40 carte nei regionali",
+    "diffusion": "Tutto il mondo (internazionale); Italia Settentrionale (Genova, Milano, Piemonte), Toscana",
+    "classicGames": [
+      "Poker",
+      "Bridge",
+      "Burraco",
+      "Scala 40",
+      "Ramino",
+      "Canasta",
+      "Black Jack",
+      "Cirulla"
+    ],
+    "signatureCard": {
+      "name": "L'Asso di Picche / Il Re di Cuori",
+      "desc": "L'Asso di Picche è la carta storicamente più elaborata perché ospitava il timbro fiscale statale britannico. Il Re di Cuori è noto come il 'Re Suicida' (The Suicide King): è l'unico dei quattro Re privo di baffi e viene ritratto mentre sembra infilarsi una spada nella nuca, frutto del travisamento grafico di un'antica ascia di guerra."
+    },
+    "trivia": "A causa della sua fama fiscale ed elaborata, l'Asso di Picche divenne noto come la 'Carta della Morte'. Nella guerra del Vietnam, i soldati americani lo posizionavano sui corpi dei nemici come elemento di guerra psicologica.",
     "suits": ["♥", "♦", "♠", "♣"],
     "notes": [
-      "Asso, due, three… dieci, fante (J), donna (Q), re (K). Più due jolly.",
-      "In Italia si usa per Scala 40, Burraco, Ramino, Bridge, Poker e tutti i solitari.",
-      "Le figure mantengono iconografie storiche: il re di cuori senza baffi, la donna di picche con scettro."
+      "**La Semplificazione Francese:** Per produrre le carte velocemente tramite xilografia, i fabbricanti di Lione e Rouen ridussero i dettagli dei semi latini. Le Coppe divennero Cuori, i Denari Quadri, i Bastoni Fiori e le Spade Picche. Questa transizione ridusse i colori a due soli (rosso e nero), abbattendo i costi di stampa.",
+      "**Il Simbolismo dei Semi:** Tradizionalmente i quattro semi francesi rappresentavano le classi sociali del regno: i **Cuori** per il Clero, i **Quadri** per la borghesia e i mercanti, i **Fiori** per i contadini e i lavoratori, e le **Picche** per i soldati e la nobiltà guerriera.",
+      "**I Nomi delle Figure:** A differenza dei mazzi latini, i francesi inserirono la Regina (Donna) al posto del Cavallo. Storicamente in Francia a ciascuna delle 12 figure veniva associato un personaggio storico o mitologico: ad esempio, il Re di Picche è il Re Davide, la Regina di Cuori è Giuditta, e il Fante di Fiori è Lancillotto.",
+      "**The Suicide King:** Il Re di Cuori è l'unico re raffuggerato senza baffi. Inoltre, è ritratto in una posa in cui sembra infilarsi una spada nella testa (da cui il nome 'Re Suicida'), dovuto in realtà alla degenerazione grafica di una copia errata di vecchi disegni dove originariamente impugnava un'ascia di guerra.",
+      "**Il Bollo dell'Asso di Picche:** Nel XVIII secolo in Gran Bretagna, lo Stato impose una tassa sui mazzi di carte. Per certificare il pagamento dell'imposta, l'ufficio statale timbrava direttamente l'Asso di Picche. Questa carta divenne così la più grande, ricca ed elaborata del mazzo."
+    ]
+  },
+  "Tedeschi": {
+    "title": "Semi Tedeschi (Centro-Europei)",
+    "eyebrow": "Mazzo alpino e tedesco · 36 o 40 carte · Semi Tedeschi",
+    "blurb": "I caratteristici mazzi diffusi in Germania, Austria, Svizzera e nelle zone alpine italiane (Alto Adige). Utilizzano quattro semi unici (Ghiande, Foglie, Cuori, Campanelli) e sono utilizzati per giochi tradizionali come il Watten.",
+    "composition": "36 carte (9 per seme: Asso/Daus, Re, Ober, Unter, 10, 9, 8, 7, 6) o 40 carte",
+    "diffusion": "Germania, Austria, Svizzera, Alto Adige (Italia)",
+    "classicGames": ["Watten", "Schafkopf", "Skat", "Doppelkopf", "Jass"],
+    "signatureCard": {
+      "name": "Il Weli (Sei di Campanelli)",
+      "desc": "Nel mazzo salisburghese da Watten, il Weli è la carta simbolo assoluta. È l'unico sei a non essere scartato e funge da Jolly speciale. Presenta stampati due campanelli, una stella araldica e il disegno di una tomba storica."
+    },
+    "trivia": "Il termine 'Weli' deriva probabilmente dal celtico o dal tedesco antico 'welly', che significa 'scelta' o 'preferenza', indicando il suo antico ruolo di carta privilegiata o matta.",
+    "suits": ["🔔", "🍂", "♥", "🌰"],
+    "notes": [
+      "**I Semi Tedeschi (Deutsches Blatt):** Sviluppati nel XV secolo nell'area germanofona, presentano simboli alternativi: le **Ghiande** (Eichel, equivalenti a Fiori/Bastoni), le **Foglie** (Laub/Grün, equivalenti a Picche/Spade), i **Cuori** (Herz, equivalenti a Cuori/Coppe) e i **Campanelli** (Schellen, equivalenti a Quadri/Denari).",
+      "**Struttura delle Carte:** Solitamente composti da 36 carte (dal Sei all'Asso) o 40 carte. L'Asso è sostituito dal **Daus** (il due, che raffigura due stemmi ed è la carta più forte). Le figure comprendono il Re (König), l'**Ober** (figura superiore col seme in alto) e l'**Unter** (figura inferiore col seme in basso).",
+      "**Il Mazzo Salisburghese (Watten):** Molto diffuso in Alto Adige per il gioco del **Watten**. Non ha la Regina, ma tre figure maschili per seme. Il Daus è la carta più alta.",
+      "**Il Watten e il Weli:** Nel mazzo salisburghese, il **Weli** (il sei di campanelli) funge da matta/jolly speciale in molti giochi tradizionali alpini, ed è graficamente caratterizzato da una stella e disegni tradizionali."
     ]
   },
   "Speciali": {
-    "title": "Mazzi speciali",
-    "eyebrow": "Mazzi dedicati a un singolo gioco",
-    "blurb": "Mazzi pensati per giochi specifici. Le carte non sono numerate ma rappresentano figure tematiche, e si comprano col regolamento incluso nella scatola.",
+    "title": "Tarocchi e Mazzi Storici",
+    "eyebrow": "Mazzi non standard · Strutture e Illustrazioni Uniche",
+    "blurb": "Mazzi che deviano dalla struttura classica a quattro semi numerici. Sono nati per giochi regionali arcaici, feste popolari o per finalità divinatorie e collezionistiche, come i Tarocchi o il Mercante in Fiera.",
+    "composition": "Variabile (38/40 carte per Cucù, 80 per Mercante in Fiera, 78 per Tarocchi)",
+    "diffusion": "Italia (Bergamo, Venezia, Bologna, Abruzzo), Francia",
+    "classicGames": [
+      "Cucù",
+      "Mercante in Fiera",
+      "Tarocchino Bolognese",
+      "Tarocco Piemontese",
+      "Solitari con Tarocchi"
+    ],
+    "signatureCard": {
+      "name": "Il Matto (Arcano Zero)",
+      "desc": "Nei Tarocchi, il Matto è la carta jolly per eccellenza. Raffigurato come un viandante scanzonato seguito da un cane che gli morde le vesti, rappresenta il caos, l'infinito e la totale libertà dalle regole del gioco."
+    },
+    "trivia": "Il Matto dei Tarocchi è l'antenato genealogico diretto del moderno 'Jolly' o 'Joker' dei mazzi francesi, importato in America per il gioco dell'Euchre a metà Ottocento.",
     "suits": [],
     "notes": [
-      "Il mazzo del Cucù ha figure proprie come il Matto, il Cucù, il Bragone, il Secchio.",
-      "Il Mercante in fiera comprende due mazzi gemelli con illustrazioni a coppia.",
-      "Tarocchi e altri mazzi divinatori, pur usabili per giochi (tarocco bolognese, piemontese), sono storia a parte."
+      "**Il Gioco del Cucù:** Uno dei mazzi regionali speciali più antichi d'Italia (tipico di Bergamo e dell'Abruzzo), composto da 38 o 40 carte senza semi. Le figure comprendono il Matto, il Bragone, il Secchio, il Mascherone, il Gatto e il Cucù, con regole basate sullo scambio rapido di carte.",
+      "**Il Mercante in Fiera:** Inventato a Venezia nel 1589 dal mercante Geronimo Bambarara, utilizza due mazzi identici di carte con illustrazioni fantasiose (animali, oggetti, scene popolari) per dar vita a un'asta e lotteria di carte molto popolare durante le festività natalizie.",
+      "**I Tarocchi (Arcani Maggiori e Minori):** Nati nel XV secolo nelle corti del Nord Italia (come i celebri Tarocchi Visconti-Sforza) come mazzo da gioco da 78 carte. Solo nel XVIII secolo iniziarono a essere utilizzati a scopi esoterici e divinatori, mentre storicamente erano usati per complessi giochi di prese come il Tarocchino Bolognese e il Tarocco Piemontese.",
+      "**L'Evoluzione Moderna:** Mazzi moderni con licenza autonoma (come *Uno*, *Solo*, o i giochi di carte collezionabili come *Magic: The Gathering* e *Pokémon*) rappresentano l'evoluzione contemporanea di questa categoria, dove le carte hanno regole scritte direttamente sulla superficie."
+    ]
+  },
+  "Storia": {
+    "title": "Storia e evoluzione delle carte",
+    "eyebrow": "Cultura delle Carte · Un viaggio millenario",
+    "blurb": "Dalle corti imperiali cinesi della dinastia Tang alle osterie italiane, attraverso la Via della Seta e le rotte mercantili del Mediterraneo: come le carte hanno conquistato il mondo.",
+    "suits": [],
+    "notes": [
+      "**Le Origini Cinesi (IX Secolo):** Le prime testimonianze scritte di giochi con foglietti di carta risalgono alla Cina della dinastia Tang (IX secolo). Si trattava di strisce di carta spessa decorate con simboli di monete (i semi originali) che venivano utilizzate sia come carte da gioco sia come banconote di scommessa.",
+      "**Il Passaggio in Persia e India:** Attraverso i mercanti della Via della Seta, il concetto di carta da gioco giunse in Medio Oriente, in Persia e in India, dove si svilupparono le carte **Ganjifa**: mazzi circolari finemente dipinti a mano da artisti locali, composti da 8 o 12 semi unici.",
+      "**I Mamelucchi e l'Arrivo in Europa (XIV Secolo):** Nel tardo Medioevo (circa 1370), le carte fecero la loro comparsa nei porti di Venezia, Genova, Napoli e Barcellona, importate dai mercanti Mamelucchi dell'Egitto. Il mazzo mamelucco, chiamato *Naib*, conteneva già 52 carte suddivise nei quattro semi latini (Coppe, Spade, Bastoni e Denari).",
+      "**La Nascita dei Semi Moderni (XV Secolo):** Originariamente le carte erano dipinte a mano e riservate dei nobili. Con l'invenzione della xilografia e successivamente della stampa a caratteri mobili, la produzione si democratizzò. La Francia semplificò i semi per velocizzare la stampa a stencil, dando vita ai semi francesi (Cuori, Quadri, Fiori, Picche) che conquistarono il mondo.",
+      "**Il Ruolo Sociale del Gioco:** Nel corso dei secoli, i giochi di carte sono stati sia banditi dalle autorità religiose e statali (etichettati come 'strumenti del demonio' o vettori di azzardo e violenza) sia celebrati come strumenti di socializzazione, calcolo matematico, intesa di coppia e svago democratico accessibile a qualunque classe sociale."
     ]
   }
 }
