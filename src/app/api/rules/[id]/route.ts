@@ -1,6 +1,13 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
-import { getGameRules } from '@/lib/data';
+import { getGameRules, getGames } from '@/lib/data';
+
+export async function generateStaticParams() {
+  const games = getGames();
+  return games.map((game) => ({
+    id: game.id,
+  }));
+}
 
 export async function GET(_request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

@@ -1539,11 +1539,16 @@ a {
   gap: 8px;
 }
 
-/* ── sheet print button ────────────────────────────── */
-.sheet-print {
+/* ── sheet actions (print & share) ────────────────────────────── */
+.sheet-actions {
   position: absolute;
   top: 18px;
   left: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.sheet-print {
   font-family: var(--mono-font);
   font-size: 10.5px;
   text-transform: uppercase;

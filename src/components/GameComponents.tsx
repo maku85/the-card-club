@@ -49,6 +49,26 @@ export function RulesSheet({
     setTimeout(() => document.body.classList.remove('print-rules'), 500);
   };
 
+  const shareSheet = async () => {
+    const shareData = {
+      title: `The Card Club: ${game.name}`,
+      text: `Scopri le regole di ${game.name} su The Card Club!`,
+      url: window.location.origin,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+        alert('Link copiato negli appunti!');
+      }
+    } catch (err) {
+      // User cancelled or error
+      console.error('Error sharing', err);
+    }
+  };
+
   return (
     <div className="sheet-overlay" onClick={onClose}>
       <article
@@ -59,9 +79,14 @@ export function RulesSheet({
         <button type="button" className="sheet-close" onClick={onClose} aria-label="Chiudi">
           x
         </button>
-        <button type="button" className="sheet-print" onClick={printSheet} aria-label="Stampa">
-          ⎙ Stampa
-        </button>
+        <div className="sheet-actions">
+          <button type="button" className="sheet-print" onClick={shareSheet} aria-label="Condividi">
+            Condividi
+          </button>
+          <button type="button" className="sheet-print" onClick={printSheet} aria-label="Stampa">
+            Stampa
+          </button>
+        </div>
 
         <header className="sheet-head">
           <div className="sheet-deck">

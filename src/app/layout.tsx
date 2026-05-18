@@ -10,10 +10,20 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
+export const viewport = {
+  themeColor: '#f6f6f6',
+};
+
 export const metadata: Metadata = {
   title: 'The Card Club — Regole di giochi di carte',
   description:
     'Un piccolo archivio di giochi di carte — napoletane, francesi, e qualche mazzo speciale.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'The Card Club',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

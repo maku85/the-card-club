@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { ChipGroup, DeckBackCard, GameCard, RulesSheet } from '@/components/GameComponents';
-import { Combinatore, GlossarioModal, MazziModal } from '@/components/Modals';
+import { Combinatore, GlossarioModal, MazziModal, ScoreboardModal } from '@/components/Modals';
 import { useFavorites } from '@/hooks/useFavorites';
 import type { Complexity, Game, GameCategory, GameRules, GlossaryEntry, MazziData } from '@/types';
 
@@ -71,6 +71,7 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
   const [showGlossario, setShowGlossario] = useState(false);
   const [showMazzi, setShowMazzi] = useState(false);
   const [showCombinatore, setShowCombinatore] = useState(false);
+  const [showScoreboard, setShowScoreboard] = useState(false);
 
   const handleOpenGame = async (game: Game) => {
     setOpenGame(game);
@@ -167,6 +168,9 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
           <button type="button" onClick={() => setShowCombinatore(true)}>
             Combinatore
           </button>
+          <button type="button" onClick={() => setShowScoreboard(true)}>
+            Segnapunti
+          </button>
           <button type="button" onClick={pickRandom} className="topnav-cta">
             Pesca a caso
           </button>
@@ -185,6 +189,10 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
         <button type="button" onClick={() => setShowCombinatore(true)}>
           <span className="mobile-nav-icon">⚙️</span>
           <span>Mixer</span>
+        </button>
+        <button type="button" onClick={() => setShowScoreboard(true)}>
+          <span className="mobile-nav-icon">📝</span>
+          <span>Punti</span>
         </button>
         <button type="button" onClick={pickRandom} className="mobile-nav-cta">
           <span className="mobile-nav-icon">🎲</span>
@@ -322,6 +330,9 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
           onPickGame={handleOpenGame}
           games={games}
         />
+      )}
+      {showScoreboard && (
+        <ScoreboardModal open={showScoreboard} onClose={() => setShowScoreboard(false)} />
       )}
 
       <footer className="footbar">

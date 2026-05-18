@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import type React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Game, GlossaryEntry, MazziData } from '@/types';
 import { BastoniIcon, CoppeIcon, DenariIcon, SpadeIcon } from './SuitIcon';
 
@@ -37,13 +37,43 @@ interface ModalProps {
 }
 
 export function Modal({ open, onClose, children, size = 'md' }: ModalProps) {
+  const modalRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
+
+      if (e.key === 'Tab') {
+        const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input:not([disabled]), select, [tabindex]:not([tabindex="-1"])',
+        );
+        if (!focusableElements || focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
     };
     window.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
+
+    setTimeout(() => {
+      const closeBtn = modalRef.current?.querySelector<HTMLButtonElement>('.sheet-close');
+      closeBtn?.focus();
+    }, 50);
+
     return () => {
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
@@ -53,8 +83,12 @@ export function Modal({ open, onClose, children, size = 'md' }: ModalProps) {
   if (!open) return null;
 
   return (
-    <div className="sheet-overlay" onClick={onClose}>
-      <article className={`sheet sheet-${size}`} onClick={(e) => e.stopPropagation()}>
+    <div className="sheet-overlay" onClick={onClose} role="dialog" aria-modal="true">
+      <article
+        ref={modalRef}
+        className={`sheet sheet-${size}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button type="button" className="sheet-close" onClick={onClose} aria-label="Chiudi">
           x
         </button>
@@ -365,6 +399,138 @@ export function Combinatore({ open, onClose, onPickGame, games }: CombinatorePro
             {matches.length > 6 && <li className="combo-more">e altri {matches.length - 6}…</li>}
           </ul>
         )}
+      </section>
+    </Modal>
+  );
+}
+
+interface ScoreboardModalProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
+  const [numPlayers, setNumPlayers] = useState(2);
+  const [scores, setScores] = useState<number[][]>([]);
+  const [currentRound, setCurrentRound] = useState<string[]>(Array(4).fill(''));
+
+  const totals = useMemo(() => {
+    const t = Array(numPlayers).fill(0);
+    scores.forEach((round) => {
+      round.forEach((s, i) => {
+        if (i < numPlayers) t[i] += s;
+      });
+    });
+    return t;
+  }, [scores, numPlayers]);
+
+  const addRound = () => {
+    const newRound = currentRound.slice(0, numPlayers).map((s) => parseInt(s) || 0);
+    if (newRound.every((s) => s === 0) && currentRound.every((s) => s === '')) return;
+    setScores([...scores, newRound]);
+    setCurrentRound(Array(4).fill(''));
+  };
+
+  const reset = () => {
+    if (window.confirm('Vuoi azzerare i punti?')) setScores([]);
+  };
+
+  return (
+    <Modal open={open} onClose={onClose} size="md">
+      <header className="sheet-head">
+        <div className="sheet-deck">Strumenti</div>
+        <h2 className="sheet-title">Segnapunti</h2>
+        <div className="mazzi-tabs">
+          {[2, 3, 4].map((n) => (
+            <button
+              key={n}
+              type="button"
+              className={`mazzi-tab ${numPlayers === n ? 'is-active' : ''}`}
+              onClick={() => {
+                if (
+                  scores.length > 0 &&
+                  !window.confirm('Cambiare giocatori azzererà i punti. Continuare?')
+                )
+                  return;
+                setNumPlayers(n);
+                setScores([]);
+              }}
+            >
+              {n} Giocatori
+            </button>
+          ))}
+        </div>
+      </header>
+
+      <section className="sheet-body">
+        <table style={{ width: '100%', textAlign: 'center', tableLayout: 'fixed' }}>
+          <thead>
+            <tr>
+              {Array.from({ length: numPlayers }).map((_, i) => (
+                <th key={i} style={{ textAlign: 'center' }}>
+                  G{i + 1}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {scores.map((round, rIndex) => (
+              <tr key={rIndex}>
+                {round.map((s, i) => (
+                  <td key={i}>{s}</td>
+                ))}
+              </tr>
+            ))}
+            <tr>
+              {Array.from({ length: numPlayers }).map((_, i) => (
+                <td key={i}>
+                  <input
+                    type="number"
+                    style={{
+                      width: '80%',
+                      padding: '8px',
+                      textAlign: 'center',
+                      borderRadius: '4px',
+                      border: '1px solid var(--rule)',
+                      background: 'transparent',
+                      color: 'var(--ink)',
+                    }}
+                    value={currentRound[i]}
+                    onChange={(e) => {
+                      const newRound = [...currentRound];
+                      newRound[i] = e.target.value;
+                      setCurrentRound(newRound);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') addRound();
+                    }}
+                  />
+                </td>
+              ))}
+            </tr>
+            <tr style={{ fontWeight: '600', fontSize: '1.25em' }}>
+              {totals.map((t, i) => (
+                <td key={i} style={{ paddingTop: '16px', borderTop: '2px solid var(--ink)' }}>
+                  {t}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '32px' }}>
+          <button type="button" className="chip" onClick={reset}>
+            Azzera
+          </button>
+          <button
+            type="button"
+            className="chip"
+            style={{ background: 'var(--ink)', color: 'var(--bg)', borderColor: 'var(--ink)' }}
+            onClick={addRound}
+          >
+            + Aggiungi Turno
+          </button>
+        </div>
       </section>
     </Modal>
   );

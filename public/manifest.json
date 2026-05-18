@@ -1,0 +1,16 @@
+{
+  "name": "The Card Club",
+  "short_name": "CardClub",
+  "description": "Un piccolo archivio di giochi di carte italiani e internazionali.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f6f6",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
