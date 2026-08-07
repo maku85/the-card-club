@@ -895,24 +895,39 @@ a {
   }
 }
 
-/* ── rules page (standalone, indexable) ───────────────── */
+/* ── rules page (standalone, indexable, full page — not a modal) ── */
 
 .rules-page {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  padding: 6vh var(--side-pad) 8vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px var(--side-pad) 64px;
+}
+
+.rules-page-toolbar {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 .sheet-page {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
   max-height: none;
   overflow: visible;
+  animation: none;
 }
 
-@media (max-width: 600px) {
-  .sheet-page {
-    border-radius: 12px;
-  }
+.sheet-page::before {
+  display: none;
 }
 
 .sheet-close {
@@ -1963,6 +1978,7 @@ a {
   .mobile-nav,
   .sheet-close,
   .sheet-print,
+  .rules-page-toolbar,
   .tavolo,
   .card-fav {
     display: none !important;

@@ -58,64 +58,85 @@ export default async function RulesPage({ params }: PageProps) {
   const isRed = game.suit === '♥' || game.suit === '♦';
 
   return (
-    <div className="rules-page">
-      <article className="sheet sheet-rules sheet-page" data-suit={isRed ? 'red' : 'black'}>
-        <div className="sheet-actions">
+    <>
+      <header className="topbar">
+        <Link href="/" className="logo">
+          <span className="logo-mark">♠</span>
+          <span className="logo-name">
+            The <span className="logo-dot">Card</span> Club
+          </span>
+        </Link>
+      </header>
+
+      <main className="rules-page">
+        <div className="rules-page-toolbar">
           <Link href="/" className="sheet-print" aria-label="Torna al catalogo">
             ← Catalogo
           </Link>
           <RulesPageActions gameName={game.name} />
         </div>
 
-        <header className="sheet-head">
-          <div className="sheet-deck">
-            <SuitIcon deck={game.deck} italianSuit={game.italianSuit} suit={game.suit} size={16} />
-            <span>{game.deck}</span>
-          </div>
-          <h1 className="sheet-title">{game.name}</h1>
-          <p className="sheet-tagline">{game.tagline}</p>
-          <dl className="sheet-meta">
-            <div>
-              <dt>Giocatori</dt>
-              <dd>{fmtPlayers(game.players)}</dd>
+        <article className="sheet sheet-page" data-suit={isRed ? 'red' : 'black'}>
+          <header className="sheet-head">
+            <div className="sheet-deck">
+              <SuitIcon
+                deck={game.deck}
+                italianSuit={game.italianSuit}
+                suit={game.suit}
+                size={16}
+              />
+              <span>{game.deck}</span>
             </div>
-            <div>
-              <dt>Durata</dt>
-              <dd>{fmtDuration(game.minutes)}</dd>
-            </div>
-            <div>
-              <dt>Difficoltà</dt>
-              <dd>{complexityDots(game.complexity)}</dd>
-            </div>
-          </dl>
-        </header>
+            <h1 className="sheet-title">{game.name}</h1>
+            <p className="sheet-tagline">{game.tagline}</p>
+            <dl className="sheet-meta">
+              <div>
+                <dt>Giocatori</dt>
+                <dd>{fmtPlayers(game.players)}</dd>
+              </div>
+              <div>
+                <dt>Durata</dt>
+                <dd>{fmtDuration(game.minutes)}</dd>
+              </div>
+              <div>
+                <dt>Difficoltà</dt>
+                <dd>{complexityDots(game.complexity)}</dd>
+              </div>
+            </dl>
+          </header>
 
-        <TavoloVirtuale game={game} />
+          <TavoloVirtuale game={game} />
 
-        {rules ? (
-          <div
-            className="sheet-body markdown-body"
-            dangerouslySetInnerHTML={{ __html: rules.contentHtml }}
-          />
-        ) : (
-          <div className="sheet-body sheet-empty">
-            <p>Nessuna regola disponibile per questo gioco.</p>
-          </div>
-        )}
-
-        {relatedGames.length > 0 && (
-          <div className="sheet-related">
-            <p className="sheet-related-label">Vedi anche</p>
-            <div className="sheet-related-chips">
-              {relatedGames.map((g) => (
-                <Link key={g.id} href={`/regole/${g.id}`} className="chip">
-                  {g.name}
-                </Link>
-              ))}
+          {rules ? (
+            <div
+              className="sheet-body markdown-body"
+              dangerouslySetInnerHTML={{ __html: rules.contentHtml }}
+            />
+          ) : (
+            <div className="sheet-body sheet-empty">
+              <p>Nessuna regola disponibile per questo gioco.</p>
             </div>
-          </div>
-        )}
-      </article>
-    </div>
+          )}
+
+          {relatedGames.length > 0 && (
+            <div className="sheet-related">
+              <p className="sheet-related-label">Vedi anche</p>
+              <div className="sheet-related-chips">
+                {relatedGames.map((g) => (
+                  <Link key={g.id} href={`/regole/${g.id}`} className="chip">
+                    {g.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+        </article>
+      </main>
+
+      <footer className="footbar">
+        <span>The Card Club</span>
+        <span className="footbar-suits">♠ ♥ ♦ ♣</span>
+      </footer>
+    </>
   );
 }
