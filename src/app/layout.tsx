@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Cormorant_Garamond } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
+import { SITE_URL } from '@/lib/site';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -16,6 +17,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'The Card Club — Regole di giochi di carte',
   description:
     'Un piccolo archivio di giochi di carte — napoletane, francesi, e qualche mazzo speciale.',
