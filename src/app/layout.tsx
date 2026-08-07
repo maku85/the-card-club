@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'The Card Club',
   },
+  verification: {
+    google: 'i8CcsSnOaZLdKNZGEhZoq3MXmAhoy8w5-eyBpEBbMns',
+  },
 };
 
 const cloudflareBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
