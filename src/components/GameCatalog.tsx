@@ -1,10 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
-import { ChipGroup, DeckBackCard, GameCard, RulesSheet } from '@/components/GameComponents';
+import { ChipGroup, DeckBackCard, GameCard } from '@/components/GameComponents';
 import { Combinatore, GlossarioModal, MazziModal, ScoreboardModal } from '@/components/Modals';
 import { useFavorites } from '@/hooks/useFavorites';
-import type { Complexity, Game, GameCategory, GameRules, GlossaryEntry, MazziData } from '@/types';
+import type { Complexity, Game, GameCategory, GlossaryEntry, MazziData } from '@/types';
 
 const DECKS = ['Latini', 'Francesi', 'Tedeschi', 'Speciali'] as const;
 
@@ -56,6 +57,7 @@ interface GameCatalogProps {
 
 export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
   const fav = useFavorites();
+  const router = useRouter();
 
   const [query, setQuery] = useState('');
   const [decks, setDecks] = useState<string[]>([]);
@@ -64,31 +66,14 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
   const [complexity, setComplexity] = useState<number | null>(null);
   const [category, setCategory] = useState<GameCategory | null>(null);
   const [favOnly, setFavOnly] = useState(false);
-  const [openGame, setOpenGame] = useState<Game | null>(null);
-  const [rulesContent, setRulesContent] = useState<GameRules | null>(null);
-  const [rulesError, setRulesError] = useState<string | null>(null);
 
   const [showGlossario, setShowGlossario] = useState(false);
   const [showMazzi, setShowMazzi] = useState(false);
   const [showCombinatore, setShowCombinatore] = useState(false);
   const [showScoreboard, setShowScoreboard] = useState(false);
 
-  const handleOpenGame = async (game: Game) => {
-    setOpenGame(game);
-    setRulesContent(null);
-    setRulesError(null);
-    try {
-      const res = await fetch(`/api/rules/${game.id}`);
-      if (res.status === 404) {
-        setRulesError('not-found');
-      } else if (!res.ok) {
-        setRulesError('error');
-      } else {
-        setRulesContent(await res.json());
-      }
-    } catch {
-      setRulesError('error');
-    }
+  const handleOpenGame = (game: Game) => {
+    router.push(`/regole/${game.id}`);
   };
 
   const scrollToTop = () => {
@@ -295,18 +280,6 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
         )}
       </section>
 
-      {openGame && (
-        <RulesSheet
-          game={openGame}
-          rules={rulesContent}
-          error={rulesError}
-          relatedGames={openGame.related
-            .map((id) => games.find((g) => g.id === id))
-            .filter((g): g is Game => g !== undefined)}
-          onPickGame={handleOpenGame}
-          onClose={() => setOpenGame(null)}
-        />
-      )}
       {showGlossario && (
         <GlossarioModal
           open={showGlossario}

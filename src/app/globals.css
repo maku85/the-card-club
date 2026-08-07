@@ -895,6 +895,26 @@ a {
   }
 }
 
+/* ── rules page (standalone, indexable) ───────────────── */
+
+.rules-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 6vh var(--side-pad) 8vh;
+}
+
+.sheet-page {
+  max-height: none;
+  overflow: visible;
+}
+
+@media (max-width: 600px) {
+  .sheet-page {
+    border-radius: 12px;
+  }
+}
+
 .sheet-close {
   position: absolute;
   top: 16px;
