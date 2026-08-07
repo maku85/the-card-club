@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -26,10 +27,19 @@ export const metadata: Metadata = {
   },
 };
 
+const cloudflareBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="it">
       <body className={cormorant.variable}>{children}</body>
+      {cloudflareBeaconToken && (
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${cloudflareBeaconToken}"}`}
+          strategy="afterInteractive"
+        />
+      )}
     </html>
   );
 }
