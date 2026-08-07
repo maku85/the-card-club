@@ -5,7 +5,12 @@ import { TavoloVirtuale } from '@/components/GameComponents';
 import { RulesPageActions } from '@/components/RulesPageActions';
 import { SuitIcon } from '@/components/SuitIcon';
 import { getGameRules, getGames } from '@/lib/data';
+import { DECK_TO_TAB } from '@/lib/decks';
 import { SITE_URL } from '@/lib/site';
+import type { Deck } from '@/types';
+
+const deckImage = (deck: Deck) =>
+  `/images/decks/${(DECK_TO_TAB[deck] ?? 'Latini').toLowerCase()}.png`;
 
 const fmtPlayers = (p: [number, number]) => (p[0] === p[1] ? `${p[0]}` : `${p[0]}–${p[1]}`);
 const fmtDuration = (m: number) =>
@@ -29,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `Regole di ${game.name} — The Card Club`;
   const description = game.tagline;
   const url = `${SITE_URL}/regole/${game.id}`;
+  const image = deckImage(game.deck);
 
   return {
     title,
@@ -39,6 +45,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url,
       type: 'article',
+      images: [{ url: image, width: 1024, height: 1024, alt: `Mazzo ${game.deck}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
     },
   };
 }
@@ -57,8 +70,27 @@ export default async function RulesPage({ params }: PageProps) {
 
   const isRed = game.suit === '♥' || game.suit === '♦';
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Game',
+    name: game.name,
+    description: game.tagline,
+    url: `${SITE_URL}/regole/${game.id}`,
+    image: `${SITE_URL}${deckImage(game.deck)}`,
+    genre: 'Gioco di carte',
+    numberOfPlayers: {
+      '@type': 'QuantitativeValue',
+      minValue: game.players[0],
+      maxValue: game.players[1],
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="topbar">
         <Link href="/" className="logo">
           <span className="logo-mark">♠</span>

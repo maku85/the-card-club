@@ -491,12 +491,23 @@ a {
 }
 
 .card:hover,
-.card:focus-visible {
+.card:focus-within {
   transform: translateY(-6px) rotate(-0.4deg);
   box-shadow:
     0 2px 2px rgba(0, 0, 0, 0.04),
     0 30px 50px -22px rgba(0, 0, 0, 0.3);
   border-color: var(--ink-soft);
+  outline: none;
+}
+
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.card-link:focus-visible {
   outline: none;
 }
 
@@ -1388,7 +1399,7 @@ a {
 
 .card:hover .card-fav,
 .card.is-fav .card-fav,
-.card:focus-visible .card-fav {
+.card:focus-within .card-fav {
   opacity: 1;
 }
 

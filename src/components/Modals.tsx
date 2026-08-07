@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import type React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { DECK_TO_TAB } from '@/lib/decks';
 import type { Game, GlossaryEntry, MazziData } from '@/types';
 import { BastoniIcon, CoppeIcon, DenariIcon, SpadeIcon } from './SuitIcon';
 
@@ -131,19 +132,6 @@ interface MazziModalProps {
   games: Game[];
   mazzi: MazziData;
 }
-
-const DECK_TO_TAB: Record<string, string> = {
-  Napoletane: 'Latini',
-  Romagnole: 'Latini',
-  Siciliane: 'Latini',
-  Bresciane: 'Latini',
-  Spagnole: 'Latini',
-  Piacentine: 'Latini',
-  Francesi: 'Francesi',
-  Genovesi: 'Francesi',
-  Tedeschi: 'Tedeschi',
-  Speciali: 'Speciali',
-};
 
 export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziModalProps) {
   const [tab, setTab] = useState('Latini');

@@ -5,22 +5,10 @@ import { useMemo, useState } from 'react';
 import { ChipGroup, DeckBackCard, GameCard } from '@/components/GameComponents';
 import { Combinatore, GlossarioModal, MazziModal, ScoreboardModal } from '@/components/Modals';
 import { useFavorites } from '@/hooks/useFavorites';
+import { DECK_TO_TAB } from '@/lib/decks';
 import type { Complexity, Game, GameCategory, GlossaryEntry, MazziData } from '@/types';
 
 const DECKS = ['Latini', 'Francesi', 'Tedeschi', 'Speciali'] as const;
-
-const DECK_TO_TAB: Record<string, string> = {
-  Napoletane: 'Latini',
-  Romagnole: 'Latini',
-  Siciliane: 'Latini',
-  Bresciane: 'Latini',
-  Spagnole: 'Latini',
-  Piacentine: 'Latini',
-  Francesi: 'Francesi',
-  Genovesi: 'Francesi',
-  Tedeschi: 'Tedeschi',
-  Speciali: 'Speciali',
-};
 
 const CATEGORIES: GameCategory[] = ['Pesca', 'Prese', 'Rummy', 'Banco', 'Solitario', 'Party'];
 
@@ -262,12 +250,7 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
         <DeckBackCard onPick={pickRandom} />
         {filtered.map((g) => (
           <div key={g.id} data-id={g.id} className="card-wrap">
-            <GameCard
-              game={g}
-              isFav={fav.has(g.id)}
-              onClick={() => handleOpenGame(g)}
-              onToggleFav={fav.toggle}
-            />
+            <GameCard game={g} isFav={fav.has(g.id)} onToggleFav={fav.toggle} />
           </div>
         ))}
         {filtered.length === 0 && (

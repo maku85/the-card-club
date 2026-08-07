@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import type React from 'react';
 import type { Game } from '@/types';
 
@@ -63,11 +64,10 @@ function MetaItem({ icon, value, label }: MetaItemProps) {
 interface GameCardProps {
   game: Game;
   isFav: boolean;
-  onClick: () => void;
   onToggleFav: (id: string) => void;
 }
 
-export function GameCard({ game, isFav, onClick, onToggleFav }: GameCardProps) {
+export function GameCard({ game, isFav, onToggleFav }: GameCardProps) {
   const isRed = game.suit === '♥' || game.suit === '♦';
   const rank = game.id.length % 10 || 'A';
   const suit = game.suit;
@@ -75,24 +75,19 @@ export function GameCard({ game, isFav, onClick, onToggleFav }: GameCardProps) {
   return (
     <article
       className={`card ${isFav ? 'is-fav' : ''}`}
-      onClick={onClick}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onClick();
-        }
-      }}
       data-suit={isRed ? 'red' : 'black'}
       data-category={game.category}
       data-deck={game.deck}
     >
+      <Link
+        href={`/regole/${game.id}`}
+        className="card-link"
+        aria-label={`Regole di ${game.name}`}
+      />
       <button
         type="button"
         className="card-fav"
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggleFav(game.id);
-        }}
+        onClick={() => onToggleFav(game.id)}
         aria-label={isFav ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
       >
         {isFav ? '★' : '☆'}
