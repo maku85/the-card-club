@@ -1991,7 +1991,8 @@ a {
   .sheet-print,
   .rules-page-toolbar,
   .tavolo,
-  .card-fav {
+  .card-fav,
+  .sheet-related {
     display: none !important;
   }
 
