@@ -40,6 +40,26 @@
     }
   },
   {
+    "id": "autumn-leaves",
+    "name": "Autumn Leaves",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🍁",
+    "players": [1, 1],
+    "minutes": 20,
+    "complexity": 2,
+    "tagline": "Un solitario d'autunno: sei pile da riordinare seme per seme, dal Re fino all'Asso, con la riserva contata.",
+    "category": "Solitario",
+    "partnerships": false,
+    "related": ["cricket", "pairs", "spider-solitaire", "klondike"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 6,
+      "deck": true,
+      "note": "6 pile in tableau (22 carte) · 30 carte di riserva"
+    }
+  },
+  {
     "id": "bauernschnapsen",
     "name": "Bauernschnapsen",
     "deck": "Tedeschi",
@@ -182,6 +202,26 @@
     }
   },
   {
+    "id": "bridge",
+    "name": "Bridge",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🌉",
+    "players": [4, 4],
+    "minutes": 90,
+    "complexity": 3,
+    "tagline": "Il gioco a prese più diffuso al mondo. Un'asta di dichiarazioni per conquistare il contratto, poi il morto si scopre e la mano si gioca a due.",
+    "category": "Prese",
+    "partnerships": true,
+    "related": ["tressette", "scopone", "briscola-chiamata"],
+    "tableSetup": {
+      "hand": 13,
+      "table": 0,
+      "deck": false,
+      "note": "13 in mano · nessun tallone · il morto si scopre dopo la dichiarazione"
+    }
+  },
+  {
     "id": "briscola",
     "name": "Briscola",
     "deck": "Napoletane",
@@ -234,7 +274,7 @@
     "tagline": "Due contro tre, ma nessuno sa chi gioca con chi. Alleanze segrete, bluff e colpi di scena.",
     "category": "Prese",
     "partnerships": true,
-    "related": ["briscola", "tressette", "bestia", "briscolone", "calabresella"],
+    "related": ["briscola", "tressette", "bestia", "briscolone", "calabresella", "bridge"],
     "tableSetup": {
       "hand": 8,
       "table": 0,
@@ -364,6 +404,26 @@
     }
   },
   {
+    "id": "canasta",
+    "name": "Canasta",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🧺",
+    "players": [4, 4],
+    "minutes": 90,
+    "complexity": 3,
+    "tagline": "Il rummy a coppie sudamericano. Calate da almeno sette carte, jolly contati col contagocce, e il tris rosso che vale la posta.",
+    "category": "Rummy",
+    "partnerships": true,
+    "related": ["scala-40", "rummy"],
+    "tableSetup": {
+      "hand": 11,
+      "table": 1,
+      "deck": true,
+      "note": "11 in mano · 1 carta scoperta per gli scarti · doppio mazzo francese con jolly · partita a 5000 punti"
+    }
+  },
+  {
     "id": "casita-robada",
     "name": "Casita Robada",
     "deck": "Spagnole",
@@ -444,6 +504,46 @@
     }
   },
   {
+    "id": "cricket",
+    "name": "Cricket",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🏏",
+    "players": [1, 1],
+    "minutes": 15,
+    "complexity": 1,
+    "tagline": "Un solitario che trasforma il mazzo in una partita di cricket: corse dalle carte numerali, e i quadri che eliminano il battitore.",
+    "category": "Solitario",
+    "partnerships": false,
+    "related": ["autumn-leaves", "pairs", "spider-solitaire"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 0,
+      "deck": true,
+      "note": "54 carte (52 + 2 jolly) · si pesca una carta alla volta"
+    }
+  },
+  {
+    "id": "klondike",
+    "name": "Klondike",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "⛏️",
+    "players": [1, 1],
+    "minutes": 20,
+    "complexity": 1,
+    "tagline": "Il solitario per eccellenza: sette pile a scalare di colore alternato, semi da ricostruire dall'Asso al Re, riserva pescata a tre a tre.",
+    "category": "Solitario",
+    "partnerships": false,
+    "related": ["spider-solitaire", "autumn-leaves"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 7,
+      "deck": true,
+      "note": "7 pile crescenti da 1 a 7 carte (28 in tutto) · 24 di riserva, pescate a tre a tre"
+    }
+  },
+  {
     "id": "marianna",
     "name": "Marianna",
     "deck": "Napoletane",
@@ -461,6 +561,46 @@
       "table": 0,
       "deck": true,
       "note": "5 in mano · briscola dinamica · accuse (Marianna, Mariannino, Mariannone) · traguardo a 501 o 151 punti"
+    }
+  },
+  {
+    "id": "pairs",
+    "name": "Pairs",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "♊",
+    "players": [1, 1],
+    "minutes": 25,
+    "complexity": 2,
+    "tagline": "Un solitario di abbinamenti: nove carte scoperte in griglia, coppie e tris che valgono punti a scalare fino al bonus finale.",
+    "category": "Solitario",
+    "partnerships": false,
+    "related": ["autumn-leaves", "cricket", "spider-solitaire"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 9,
+      "deck": true,
+      "note": "9 carte scoperte in griglia 3×3 · due mazzi da 52 come riserva (104 carte)"
+    }
+  },
+  {
+    "id": "rummy",
+    "name": "Rummy",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🧩",
+    "players": [2, 6],
+    "minutes": 20,
+    "complexity": 1,
+    "tagline": "Il capostipite dei giochi di combinazione: tris, poker e scale da calare sul tavolo, un solo scarto a decidere la mano.",
+    "category": "Rummy",
+    "partnerships": false,
+    "related": ["scala-40", "canasta"],
+    "tableSetup": {
+      "hand": 7,
+      "table": 1,
+      "deck": true,
+      "note": "7 in mano (10 in due giocatori, 6 in cinque-sei) · 1 carta scoperta per lo scarto"
     }
   },
   {
@@ -496,7 +636,7 @@
     "tagline": "Il re indiscusso dei giochi di combinazione italiani, tra calate da 40 punti, scarti calcolati e la caccia al jolly.",
     "category": "Rummy",
     "partnerships": false,
-    "related": ["cirulla"],
+    "related": ["cirulla", "canasta", "rummy"],
     "tableSetup": {
       "hand": 13,
       "table": 1,
@@ -546,7 +686,7 @@
     "tagline": "Il re dei giochi di pesca. Silenzio e intesa tra compagni nella variante 'Scientifica' da 10 carte a testa.",
     "category": "Pesca",
     "partnerships": true,
-    "related": ["scopa", "cirulla", "cicera", "bazzica"],
+    "related": ["scopa", "cirulla", "cicera", "bazzica", "bridge"],
     "tableSetup": {
       "hand": 9,
       "table": 4,
@@ -562,6 +702,26 @@
         { "key": "scope", "label": "Scope" }
       ],
       "winTarget": 11
+    }
+  },
+  {
+    "id": "spider-solitaire",
+    "name": "Spider Solitaire",
+    "deck": "Francesi",
+    "italianSuit": null,
+    "suit": "🕷️",
+    "players": [1, 1],
+    "minutes": 30,
+    "complexity": 2,
+    "tagline": "Un solitario esigente: dieci pile da riordinare in sequenza decrescente, otto semi completi da scovare in un doppio mazzo.",
+    "category": "Solitario",
+    "partnerships": false,
+    "related": ["autumn-leaves", "pairs", "cricket", "klondike"],
+    "tableSetup": {
+      "hand": 0,
+      "table": 10,
+      "deck": true,
+      "note": "10 pile da 5 carte (4 coperte + 1 scoperta) · doppio mazzo da 104 carte · fino a 5 rifornimenti"
     }
   },
   {
@@ -603,7 +763,8 @@
       "bestia",
       "briscola-chiamata",
       "calabresella",
-      "spizzichino"
+      "spizzichino",
+      "bridge"
     ],
     "tableSetup": {
       "hand": 10,

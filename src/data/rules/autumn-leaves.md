@@ -1,0 +1,37 @@
+---
+id: autumn-leaves
+title: Autumn Leaves
+setup: Mazzo francese da 52 carte. Ventidue carte in sei pile di tableau, le restanti trenta come riserva coperta.
+object: Costruire quattro scale complete dello stesso seme, dal Re fino all'Asso.
+variants: Non risultano varianti codificate; per aumentare la difficoltà si può limitare il numero di ridistribuzioni concesse.
+---
+
+### Il mazzo
+
+Si gioca in solitario, da soli contro il mazzo, con un mazzo francese standard da 52 carte.
+
+### Preparazione
+
+Si dispongono 22 carte in sei pile sul tavolo: le due pile centrali ricevono 3 carte ciascuna, le quattro pile esterne ne ricevono 4 ciascuna. Solo la carta in cima a ogni pila resta scoperta; le altre restano coperte sotto. Le 30 carte rimanenti formano la riserva, tenuta coperta da parte.
+
+### Svolgimento
+
+Si può spostare la carta in cima a una pila su un'altra pila solo se la carta di destinazione è dello **stesso seme** e di **valore superiore** — non necessariamente il valore immediatamente successivo.
+
+Più carte consecutive dello stesso seme, già in ordine decrescente, possono essere spostate insieme come un'unica sequenza.
+
+Ogni volta che uno spostamento scopre una carta coperta in cima a una pila, quella carta diventa giocabile.
+
+### La riserva
+
+In qualsiasi momento si può scegliere di distribuire sei nuove carte dalla riserva, una su ciascuna delle sei pile del tableau. Con 30 carte di riserva, questo è possibile fino a **cinque volte** in totale nel corso della partita.
+
+### Vittoria
+
+Si vince costruendo quattro sequenze complete, una per ciascun seme, ordinate dal Re fino all'Asso.
+
+> A differenza di molti solitari, le sequenze completate **restano in gioco** sul tavolo invece di essere rimosse.
+
+### Fine partita
+
+La partita si perde quando non restano più mosse valide sul tableau e la riserva è ormai esaurita, senza aver completato le quattro sequenze.
