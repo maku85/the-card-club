@@ -395,12 +395,24 @@ export function Combinatore({ open, onClose, onPickGame, games }: CombinatorePro
 interface ScoreboardModalProps {
   open: boolean;
   onClose: () => void;
+  game?: Game;
 }
 
-export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
-  const [numPlayers, setNumPlayers] = useState(2);
+const emptyRow = () => Array(4).fill('');
+
+export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
+  const categories = game?.scoring?.categories;
+  const winTarget = game?.scoring?.winTarget;
+
+  const fixedPlayerCount =
+    game && game.players[0] === game.players[1] ? Math.min(4, Math.max(2, game.players[0])) : null;
+  const [numPlayers, setNumPlayers] = useState(fixedPlayerCount ?? 2);
+  const [playerNames, setPlayerNames] = useState<string[]>(emptyRow());
   const [scores, setScores] = useState<number[][]>([]);
-  const [currentRound, setCurrentRound] = useState<string[]>(Array(4).fill(''));
+  const [currentRound, setCurrentRound] = useState<string[]>(emptyRow());
+  const [currentCategoryRound, setCurrentCategoryRound] = useState<Record<string, string[]>>(() =>
+    Object.fromEntries((categories ?? []).map((c) => [c.key, emptyRow()])),
+  );
 
   const totals = useMemo(() => {
     const t = Array(numPlayers).fill(0);
@@ -412,11 +424,37 @@ export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
     return t;
   }, [scores, numPlayers]);
 
+  const winnerIndex = useMemo(() => {
+    if (!winTarget) return -1;
+    let best = -1;
+    totals.forEach((t, i) => {
+      if (t >= winTarget && (best === -1 || t > totals[best])) best = i;
+    });
+    return best;
+  }, [totals, winTarget]);
+
+  const playerLabel = (i: number) => playerNames[i]?.trim() || `G${i + 1}`;
+
   const addRound = () => {
-    const newRound = currentRound.slice(0, numPlayers).map((s) => parseInt(s) || 0);
-    if (newRound.every((s) => s === 0) && currentRound.every((s) => s === '')) return;
+    let newRound: number[];
+    if (categories) {
+      newRound = Array.from({ length: numPlayers }).map((_, i) =>
+        categories.reduce(
+          (sum, cat) => sum + (parseInt(currentCategoryRound[cat.key][i], 10) || 0),
+          0,
+        ),
+      );
+      const allEmpty = categories.every((cat) =>
+        currentCategoryRound[cat.key].slice(0, numPlayers).every((v) => v === ''),
+      );
+      if (allEmpty) return;
+      setCurrentCategoryRound(Object.fromEntries(categories.map((c) => [c.key, emptyRow()])));
+    } else {
+      newRound = currentRound.slice(0, numPlayers).map((s) => parseInt(s, 10) || 0);
+      if (newRound.every((s) => s === 0) && currentRound.every((s) => s === '')) return;
+      setCurrentRound(emptyRow());
+    }
     setScores([...scores, newRound]);
-    setCurrentRound(Array(4).fill(''));
   };
 
   const reset = () => {
@@ -426,7 +464,7 @@ export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
   return (
     <Modal open={open} onClose={onClose} size="md">
       <header className="sheet-head">
-        <div className="sheet-deck">Strumenti</div>
+        <div className="sheet-deck">{game ? game.name : 'Strumenti'}</div>
         <h2 className="sheet-title">Segnapunti</h2>
         <div className="mazzi-tabs">
           {[2, 3, 4].map((n) => (
@@ -451,12 +489,29 @@ export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
       </header>
 
       <section className="sheet-body">
+        {winnerIndex !== -1 && (
+          <div className="score-winner-banner">
+            🎉 {playerLabel(winnerIndex)} ha vinto con {totals[winnerIndex]} punti!
+          </div>
+        )}
+
         <table style={{ width: '100%', textAlign: 'center', tableLayout: 'fixed' }}>
           <thead>
             <tr>
+              {categories && <th style={{ width: '90px' }} />}
               {Array.from({ length: numPlayers }).map((_, i) => (
                 <th key={i} style={{ textAlign: 'center' }}>
-                  G{i + 1}
+                  <input
+                    type="text"
+                    className="score-name-input"
+                    value={playerNames[i]}
+                    placeholder={`G${i + 1}`}
+                    onChange={(e) => {
+                      const next = [...playerNames];
+                      next[i] = e.target.value;
+                      setPlayerNames(next);
+                    }}
+                  />
                 </th>
               ))}
             </tr>
@@ -464,41 +519,71 @@ export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
           <tbody>
             {scores.map((round, rIndex) => (
               <tr key={rIndex}>
+                {categories && <td className="score-round-label">Mano {rIndex + 1}</td>}
                 {round.map((s, i) => (
                   <td key={i}>{s}</td>
                 ))}
               </tr>
             ))}
-            <tr>
-              {Array.from({ length: numPlayers }).map((_, i) => (
-                <td key={i}>
-                  <input
-                    type="number"
-                    style={{
-                      width: '80%',
-                      padding: '8px',
-                      textAlign: 'center',
-                      borderRadius: '4px',
-                      border: '1px solid var(--rule)',
-                      background: 'transparent',
-                      color: 'var(--ink)',
-                    }}
-                    value={currentRound[i]}
-                    onChange={(e) => {
-                      const newRound = [...currentRound];
-                      newRound[i] = e.target.value;
-                      setCurrentRound(newRound);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') addRound();
-                    }}
-                  />
-                </td>
-              ))}
-            </tr>
+
+            {categories ? (
+              categories.map((cat) => (
+                <tr key={cat.key}>
+                  <td className="score-round-label">{cat.label}</td>
+                  {Array.from({ length: numPlayers }).map((_, i) => (
+                    <td key={i}>
+                      <input
+                        type="number"
+                        className="score-cell-input"
+                        value={currentCategoryRound[cat.key]?.[i] ?? ''}
+                        onChange={(e) => {
+                          const next = {
+                            ...currentCategoryRound,
+                            [cat.key]: [...(currentCategoryRound[cat.key] ?? emptyRow())],
+                          };
+                          next[cat.key][i] = e.target.value;
+                          setCurrentCategoryRound(next);
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') addRound();
+                        }}
+                      />
+                    </td>
+                  ))}
+                </tr>
+              ))
+            ) : (
+              <tr>
+                {Array.from({ length: numPlayers }).map((_, i) => (
+                  <td key={i}>
+                    <input
+                      type="number"
+                      className="score-cell-input"
+                      value={currentRound[i]}
+                      onChange={(e) => {
+                        const newRound = [...currentRound];
+                        newRound[i] = e.target.value;
+                        setCurrentRound(newRound);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') addRound();
+                      }}
+                    />
+                  </td>
+                ))}
+              </tr>
+            )}
+
             <tr style={{ fontWeight: '600', fontSize: '1.25em' }}>
+              {categories && (
+                <td style={{ paddingTop: '16px', borderTop: '2px solid var(--ink)' }} />
+              )}
               {totals.map((t, i) => (
-                <td key={i} style={{ paddingTop: '16px', borderTop: '2px solid var(--ink)' }}>
+                <td
+                  key={i}
+                  style={{ paddingTop: '16px', borderTop: '2px solid var(--ink)' }}
+                  className={i === winnerIndex ? 'score-total-winner' : ''}
+                >
                   {t}
                 </td>
               ))}
@@ -516,7 +601,7 @@ export function ScoreboardModal({ open, onClose }: ScoreboardModalProps) {
             style={{ background: 'var(--ink)', color: 'var(--bg)', borderColor: 'var(--ink)' }}
             onClick={addRound}
           >
-            + Aggiungi Turno
+            + Aggiungi {categories ? 'Mano' : 'Turno'}
           </button>
         </div>
       </section>

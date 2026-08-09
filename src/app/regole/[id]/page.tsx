@@ -105,7 +105,7 @@ export default async function RulesPage({ params }: PageProps) {
           <Link href="/" className="sheet-print" aria-label="Torna al catalogo">
             ← Catalogo
           </Link>
-          <RulesPageActions gameName={game.name} />
+          <RulesPageActions game={game} />
         </div>
 
         <article className="sheet sheet-page" data-suit={isRed ? 'red' : 'black'}>

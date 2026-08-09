@@ -1,10 +1,17 @@
 'use client';
 
+import { useState } from 'react';
+import { ScoreboardModal } from '@/components/Modals';
+import type { Game } from '@/types';
+
 interface RulesPageActionsProps {
-  gameName: string;
+  game: Game;
 }
 
-export function RulesPageActions({ gameName }: RulesPageActionsProps) {
+export function RulesPageActions({ game }: RulesPageActionsProps) {
+  const gameName = game.name;
+  const [showScoreboard, setShowScoreboard] = useState(false);
+
   const printSheet = () => {
     document.body.classList.add('print-rules');
     window.print();
@@ -38,6 +45,21 @@ export function RulesPageActions({ gameName }: RulesPageActionsProps) {
       <button type="button" className="sheet-print" onClick={printSheet} aria-label="Stampa">
         Stampa
       </button>
+      <button
+        type="button"
+        className="sheet-print"
+        onClick={() => setShowScoreboard(true)}
+        aria-label="Segnapunti"
+      >
+        Segnapunti
+      </button>
+      {showScoreboard && (
+        <ScoreboardModal
+          open={showScoreboard}
+          onClose={() => setShowScoreboard(false)}
+          game={game}
+        />
+      )}
     </>
   );
 }

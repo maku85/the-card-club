@@ -20,6 +20,16 @@ export interface TableSetup {
   note: string;
 }
 
+export interface ScoreCategory {
+  key: string;
+  label: string;
+}
+
+export interface GameScoring {
+  categories?: ScoreCategory[];
+  winTarget?: number;
+}
+
 export interface Game {
   id: string;
   name: string;
@@ -34,6 +44,7 @@ export interface Game {
   category: GameCategory;
   partnerships: boolean;
   related: string[];
+  scoring?: GameScoring;
 }
 
 export interface GlossaryEntry {

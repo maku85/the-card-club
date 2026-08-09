@@ -522,6 +522,16 @@
       "table": 4,
       "deck": true,
       "note": "3 in mano · 4 sul tavolo · mazzo da 40"
+    },
+    "scoring": {
+      "categories": [
+        { "key": "carte", "label": "Carte" },
+        { "key": "denari", "label": "Denari" },
+        { "key": "settebello", "label": "Settebello" },
+        { "key": "primiera", "label": "Primiera" },
+        { "key": "scope", "label": "Scope" }
+      ],
+      "winTarget": 11
     }
   },
   {
@@ -542,6 +552,16 @@
       "table": 4,
       "deck": false,
       "note": "9 in mano e 4 sul tavolo · Oppure 10 in mano (Scopone Scientifico) · senza tallone"
+    },
+    "scoring": {
+      "categories": [
+        { "key": "carte", "label": "Carte" },
+        { "key": "denari", "label": "Denari" },
+        { "key": "settebello", "label": "Settebello" },
+        { "key": "primiera", "label": "Primiera" },
+        { "key": "scope", "label": "Scope" }
+      ],
+      "winTarget": 11
     }
   },
   {
@@ -590,6 +610,9 @@
       "table": 0,
       "deck": false,
       "note": "10 in mano · nessuna scoperta · senza briscola"
+    },
+    "scoring": {
+      "winTarget": 21
     }
   },
   {
