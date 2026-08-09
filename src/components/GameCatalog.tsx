@@ -54,6 +54,7 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
   const [complexity, setComplexity] = useState<number | null>(null);
   const [category, setCategory] = useState<GameCategory | null>(null);
   const [favOnly, setFavOnly] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const [showGlossario, setShowGlossario] = useState(false);
   const [showMazzi, setShowMazzi] = useState(false);
@@ -194,7 +195,21 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
         </div>
       </section>
 
-      <section className="filters" id="sfoglia">
+      <button
+        type="button"
+        className="filters-toggle"
+        onClick={() => setFiltersOpen((v) => !v)}
+        aria-expanded={filtersOpen}
+        aria-controls="sfoglia"
+      >
+        <span>Filtri{anyFilter ? ' ·' : ''}</span>
+        <span className="count">
+          {filtered.length} {filtered.length === 1 ? 'gioco' : 'giochi'}
+        </span>
+        <span aria-hidden="true">{filtersOpen ? '▲' : '▼'}</span>
+      </button>
+
+      <section className={`filters ${filtersOpen ? 'is-open' : ''}`} id="sfoglia">
         <ChipGroup
           label="Mazzo"
           multi
