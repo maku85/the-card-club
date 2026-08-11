@@ -17,6 +17,11 @@
 /.next/
 /out/
 
+# next-pwa (generated on every build, contains build-specific hashes)
+/public/sw.js
+/public/workbox-*.js
+/public/fallback-*.js
+
 # production
 /build
 

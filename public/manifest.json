@@ -3,14 +3,28 @@
   "short_name": "CardClub",
   "description": "Un piccolo archivio di giochi di carte italiani e internazionali.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f6f6f6",
   "theme_color": "#18181b",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon"
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
