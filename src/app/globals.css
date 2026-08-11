@@ -1454,6 +1454,10 @@ a {
   min-height: 140px;
 }
 
+.tavolo-felt:has(.tavolo-deck) {
+  padding-left: 56px;
+}
+
 .tavolo-deck,
 .tavolo-briscola {
   position: absolute;
