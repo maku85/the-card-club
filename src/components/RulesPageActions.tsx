@@ -11,6 +11,7 @@ interface RulesPageActionsProps {
 export function RulesPageActions({ game }: RulesPageActionsProps) {
   const gameName = game.name;
   const [showScoreboard, setShowScoreboard] = useState(false);
+  const showScoreboardButton = game.category !== 'Solitario';
 
   const printSheet = () => {
     document.body.classList.add('print-rules');
@@ -45,14 +46,16 @@ export function RulesPageActions({ game }: RulesPageActionsProps) {
       <button type="button" className="sheet-print" onClick={printSheet} aria-label="Stampa">
         Stampa
       </button>
-      <button
-        type="button"
-        className="sheet-print"
-        onClick={() => setShowScoreboard(true)}
-        aria-label="Segnapunti"
-      >
-        Segnapunti
-      </button>
+      {showScoreboardButton && (
+        <button
+          type="button"
+          className="sheet-print"
+          onClick={() => setShowScoreboard(true)}
+          aria-label="Segnapunti"
+        >
+          Segnapunti
+        </button>
+      )}
       {showScoreboard && (
         <ScoreboardModal
           open={showScoreboard}

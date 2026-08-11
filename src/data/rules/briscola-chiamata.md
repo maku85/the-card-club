@@ -46,7 +46,6 @@ Subito dopo, si avvia l'asta per determinare chi sarà il **Chiamante** (il capo
     - **Il Compagno**: Chi possiede la carta chiamata. Egli fa squadra con il Chiamante ma **non deve rivelarsi in alcun modo**! La sua identità si scoprirà solo nel corso delle prese (ad esempio quando cala la carta chiamata).
     - **I tre Oppositori**: I restanti 3 giocatori. Fanno squadra insieme e cercano di far fallire la coppia.
 
-> [!IMPORTANT]
 > Un giocatore può decidere di **chiamarsi in mano** (dichiarando una carta che possiede lui stesso). In questo caso giocherà **da solo (1 contro 4)** contro tutti gli altri, senza che gli avversari lo sappiano finché la carta chiamata non viene rivelata.
 
 ---

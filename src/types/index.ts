@@ -17,6 +17,7 @@ export interface TableSetup {
   table: number;
   deck: boolean;
   briscola?: boolean;
+  piles?: boolean;
   note: string;
 }
 

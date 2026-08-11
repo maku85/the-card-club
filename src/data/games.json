@@ -56,6 +56,7 @@
       "hand": 0,
       "table": 6,
       "deck": true,
+      "piles": true,
       "note": "6 pile in tableau (22 carte) · 30 carte di riserva"
     }
   },
@@ -540,6 +541,7 @@
       "hand": 0,
       "table": 7,
       "deck": true,
+      "piles": true,
       "note": "7 pile crescenti da 1 a 7 carte (28 in tutto) · 24 di riserva, pescate a tre a tre"
     }
   },
@@ -721,6 +723,7 @@
       "hand": 0,
       "table": 10,
       "deck": true,
+      "piles": true,
       "note": "10 pile da 5 carte (4 coperte + 1 scoperta) · doppio mazzo da 104 carte · fino a 5 rifornimenti"
     }
   },

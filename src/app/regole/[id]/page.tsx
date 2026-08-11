@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { TavoloVirtuale } from '@/components/GameComponents';
 import { RulesPageActions } from '@/components/RulesPageActions';
-import { SuitIcon } from '@/components/SuitIcon';
 import { getGameRules, getGames } from '@/lib/data';
 import { DECK_TO_TAB } from '@/lib/decks';
 import { SITE_URL } from '@/lib/site';
@@ -111,12 +110,6 @@ export default async function RulesPage({ params }: PageProps) {
         <article className="sheet sheet-page" data-suit={isRed ? 'red' : 'black'}>
           <header className="sheet-head">
             <div className="sheet-deck">
-              <SuitIcon
-                deck={game.deck}
-                italianSuit={game.italianSuit}
-                suit={game.suit}
-                size={16}
-              />
               <span>{game.deck}</span>
             </div>
             <h1 className="sheet-title">{game.name}</h1>

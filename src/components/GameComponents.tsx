@@ -11,6 +11,8 @@ const complexityDots = (c: number) => '●'.repeat(c) + '○'.repeat(3 - c);
 
 export function TavoloVirtuale({ game }: { game: Game }) {
   const setup = game.tableSetup;
+  const isTableau = Boolean(setup.piles) && (setup.table || 0) > 0;
+
   return (
     <div className="tavolo" aria-hidden="true">
       <div className="tavolo-felt">
@@ -22,15 +24,32 @@ export function TavoloVirtuale({ game }: { game: Game }) {
           </div>
         )}
         {setup.briscola && <div className="tavolo-briscola" />}
-        <div className="tavolo-table">
-          {Array.from({ length: setup.table || 0 }).map((_, i) => (
-            <div
-              key={i}
-              className="mini-card mini-card-up"
-              style={{ animationDelay: `${0.4 + i * 0.08}s` }}
-            />
-          ))}
-        </div>
+        {isTableau ? (
+          <div className="tavolo-piles">
+            {Array.from({ length: setup.table }).map((_, i) => (
+              <div key={i} className="tavolo-pile">
+                <div
+                  className="mini-card mini-card-down"
+                  style={{ animationDelay: `${0.3 + i * 0.06}s` }}
+                />
+                <div
+                  className="mini-card mini-card-up"
+                  style={{ animationDelay: `${0.36 + i * 0.06}s` }}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="tavolo-table">
+            {Array.from({ length: setup.table || 0 }).map((_, i) => (
+              <div
+                key={i}
+                className="mini-card mini-card-up"
+                style={{ animationDelay: `${0.4 + i * 0.08}s` }}
+              />
+            ))}
+          </div>
+        )}
         <div className="tavolo-hand">
           {Array.from({ length: Math.min(setup.hand || 0, 13) }).map((_, i) => (
             <div
@@ -68,14 +87,9 @@ interface GameCardProps {
 }
 
 export function GameCard({ game, isFav, onToggleFav }: GameCardProps) {
-  const isRed = game.suit === '♥' || game.suit === '♦';
-  const rank = game.id.length % 10 || 'A';
-  const suit = game.suit;
-
   return (
     <article
       className={`card ${isFav ? 'is-fav' : ''}`}
-      data-suit={isRed ? 'red' : 'black'}
       data-category={game.category}
       data-deck={game.deck}
     >
@@ -92,15 +106,6 @@ export function GameCard({ game, isFav, onToggleFav }: GameCardProps) {
       >
         {isFav ? '★' : '☆'}
       </button>
-
-      <div className="card-corner tl">
-        <span className="card-rank">{rank}</span>
-        <span className="card-suit">{suit}</span>
-      </div>
-      <div className="card-corner br">
-        <span className="card-rank">{rank}</span>
-        <span className="card-suit">{suit}</span>
-      </div>
 
       <div className="card-body">
         <div className="card-deck">

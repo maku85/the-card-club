@@ -1,6 +1,3 @@
-import type React from 'react';
-import type { ItalianSuit } from '@/types';
-
 interface IconProps {
   size?: number;
 }
@@ -61,30 +58,4 @@ export function SpadeIcon({ size = 14 }: IconProps) {
       <circle cx="12" cy="22.5" r="3.2" />
     </svg>
   );
-}
-
-interface SuitIconProps {
-  deck: string;
-  italianSuit: ItalianSuit | null;
-  suit: string;
-  size?: number;
-}
-
-export function SuitIcon({ deck, italianSuit, suit, size = 14 }: SuitIconProps) {
-  if (
-    deck === 'Napoletane' ||
-    deck === 'Genovesi' ||
-    deck === 'Romagnole' ||
-    (deck !== 'Francesi' && deck !== 'Speciali' && italianSuit)
-  ) {
-    const map: Record<ItalianSuit, React.ComponentType<IconProps>> = {
-      coppe: CoppeIcon,
-      denari: DenariIcon,
-      bastoni: BastoniIcon,
-      spade: SpadeIcon,
-    };
-    const C = italianSuit ? map[italianSuit] : null;
-    return C ? <C size={size} /> : <span style={{ fontSize: size }}>{suit}</span>;
-  }
-  return <span style={{ fontSize: size, lineHeight: 1 }}>{suit}</span>;
 }

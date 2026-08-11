@@ -45,7 +45,6 @@ Al termine del mazzo, le coppie contano i punti nelle proprie prese:
 -   **Dieci di Denari (Bello)**: **1 punto** a chi cattura il **Dieci di Denari**.
 -   **Fante di Coppe (Gobbo)**: **1 punto** a chi cattura il **Fante di Coppe**.
 
-> [!IMPORTANT]
 > **Il Napoleone**: Se una coppia riesce a catturare **tutte le 13 carte di Spade** durante una mano, realizza il *Napoleone* e **vince immediatamente l'intera partita**, indipendentemente dal punteggio corrente!
 
 #### 2. Punti Speciali durante il Gioco
@@ -57,7 +56,6 @@ Questi punti vengono realizzati all'istante durante le prese (tradizionalmente s
 *   **Simili (Simili - 1 punto)**: Quando si effettua una cattura ad addizione in cui la propria carta giocata e tutte le carte prese dal tavolo appartengono al **medesimo seme** (es. giocando il 9 di Denari si prendono il 2, 3 e 4 di Denari).
 *   **Quadriglia (Quadriglia - 1 punto)**: Quando si cattura un gruppo composto da **3 o più carte** dal tavolo in un solo colpo (es. un 9 che cattura 2, 3 e 4).
 
-> [!TIP]
 > I punti durante il gioco sono **cumulabili**! Se sul tavolo ci sono solo il 2, 3 e 4 di Denari e li catturi con il 9 di Denari, guadagni ben **3 punti** in un solo colpo: 1 punto per *Simili* (tutti dello stesso seme), 1 punto per *Quadriglia* (3 carte catturate) e 1 punto per *Scùa* (tavolo svuotato)! Se catturi subito la carta giocata dall'avversario precedente ad inizio mano a tavolo vuoto, ottieni **2 punti** (1 per *Scùa* e 1 per *Picada*).
 
 ---

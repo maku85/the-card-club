@@ -565,47 +565,6 @@ a {
   }
 }
 
-.card[data-suit="red"] .card-suit,
-.card[data-suit="red"] .card-rank {
-  color: var(--red);
-}
-
-.no-suit-color .card[data-suit="red"] .card-suit,
-.no-suit-color .card[data-suit="red"] .card-rank {
-  color: var(--ink);
-}
-
-.card-corner {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
-  font-family: var(--display-font);
-}
-
-.card-corner.tl {
-  top: 14px;
-  left: 14px;
-}
-
-.card-corner.br {
-  bottom: 14px;
-  right: 14px;
-  transform: rotate(180deg);
-}
-
-.card-rank {
-  font-size: 18px;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.card-suit {
-  font-size: 14px;
-  margin-top: 1px;
-}
-
 .card-body {
   margin: auto 0;
   padding: 0 22px;
@@ -1160,6 +1119,9 @@ a {
 
 /* tables */
 .sheet-body table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   border-collapse: collapse;
   font-family: var(--mono-font);
@@ -1400,14 +1362,7 @@ a {
   vertical-align: 0.5px;
 }
 
-/* ── card: italian suit + fav star ─────────────────── */
-.card-corner .card-suit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
-}
-
+/* ── card: fav star ─────────────────────────────────── */
 .card-fav {
   position: absolute;
   top: 8px;
@@ -1556,6 +1511,33 @@ a {
   display: flex;
   gap: 4px;
   justify-content: center;
+}
+
+.tavolo-piles {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 420px;
+}
+
+.tavolo-pile {
+  position: relative;
+  width: 28px;
+  height: 50px;
+}
+
+.tavolo-pile .mini-card {
+  position: absolute;
+  left: 0;
+}
+
+.tavolo-pile .mini-card-down {
+  top: 0;
+}
+
+.tavolo-pile .mini-card-up {
+  top: 10px;
 }
 
 .mini-card {

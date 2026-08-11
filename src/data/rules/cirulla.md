@@ -32,7 +32,6 @@ La Cirulla arricchisce la Scopa tradizionale con nuovi e straordinari modi per c
 3.  **La Regola del 15**: Si possono catturare una o più carte dal tavolo se la somma tra la carta giocata dalla mano e quelle sul tavolo fa **esattamente 15** (es. un 5 prende un Re 10, oppure un 5 prende un 7 e un 3).
 4.  **Presa dell'Asso**: Giocando un Asso, si catturano **tutte le carte presenti sul tavolo** (realizzando una *Scopa*), a patto che sul tavolo non ci sia un altro Asso. Se c'è già un Asso sul tavolo, l'Asso giocato può prendere solo l'Asso a terra (presa semplice) o concorrere a fare 15.
 
-> [!NOTE]
 > A differenza della Scopa, se si hanno più prese possibili a disposizione, si è completamente liberi di scegliere quale effettuare (es. con un 9 si può scegliere di prendere un 9 singolo, o fare 5+4, o fare 15 catturando un 6). Se una presa viene dimenticata e non segnalata prima della giocata del giocatore successivo, le carte rimangono sul tavolo.
 
 ---
@@ -69,7 +68,6 @@ Al termine della mano, si raccolgono le carte rimaste a terra a favore di chi ha
 -   **La Piccola (a bassa)**: Se si cattura una sequenza continua di Quadri a partire dall'Asso (Asso, 2, 3), si ottiene **1 punto per ciascuna carta della sequenza**, fino a un maximum di 6 punti (es. Asso-2-3-4-5-6 di Quadri = 6 punti).
 -   **La Grande (l'erta)**: **5 punti** a chi cattura il trittico di figure di Quadri: Fante, Regina e Re (J, Q, K di Quadri).
 
-> [!IMPORTANT]
 > **Il Cappotto**: Se una coppia o un giocatore riesce a catturare **l'intero seme di Quadri** (la Piccola da 6 carte + la Grande + il Sette Bello), realizza il *Cappotto* e **vince istantaneamente l'intera partita**!
 
 ---
