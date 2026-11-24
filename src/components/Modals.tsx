@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DECK_TO_TAB } from '@/lib/decks';
+import { complexityDots, fmtDuration } from '@/lib/format';
 import type { Game, GlossaryEntry, MazziData } from '@/types';
 import { BastoniIcon, CoppeIcon, DenariIcon, SpadeIcon } from './SuitIcon';
 
@@ -35,15 +36,20 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
+  label: string;
 }
 
-export function Modal({ open, onClose, children, size = 'md' }: ModalProps) {
+export function Modal({ open, onClose, children, size = 'md', label }: ModalProps) {
   const modalRef = useRef<HTMLElement>(null);
+  // Callers pass inline arrows; a ref keeps the effect from re-running (and stealing focus) on every render.
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   useEffect(() => {
     if (!open) return;
+    const opener = document.activeElement as HTMLElement | null;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') onCloseRef.current();
 
       if (e.key === 'Tab') {
         const focusableElements = modalRef.current?.querySelectorAll<HTMLElement>(
@@ -78,13 +84,20 @@ export function Modal({ open, onClose, children, size = 'md' }: ModalProps) {
     return () => {
       window.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
+      opener?.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 
   return (
-    <div className="sheet-overlay" onClick={onClose} role="dialog" aria-modal="true">
+    <div
+      className="sheet-overlay"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={label}
+    >
       <article
         ref={modalRef}
         className={`sheet sheet-${size}`}
@@ -107,7 +120,7 @@ interface GlossarioModalProps {
 
 export function GlossarioModal({ open, onClose, glossary }: GlossarioModalProps) {
   return (
-    <Modal open={open} onClose={onClose} size="md">
+    <Modal open={open} onClose={onClose} size="md" label="Glossario">
       <header className="sheet-head">
         <div className="sheet-deck">Lessico</div>
         <h2 className="sheet-title">Glossario</h2>
@@ -139,7 +152,7 @@ export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziMod
   const linkedGames = games.filter((g) => DECK_TO_TAB[g.deck] === tab);
 
   return (
-    <Modal open={open} onClose={onClose} size="lg">
+    <Modal open={open} onClose={onClose} size="lg" label="Mazzi">
       <header className="sheet-head">
         <div className="sheet-deck">{m.eyebrow}</div>
         <h2 className="sheet-title">{m.title}</h2>
@@ -149,6 +162,7 @@ export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziMod
             <button
               type="button"
               key={k}
+              aria-pressed={k === tab}
               className={`mazzi-tab ${k === tab ? 'is-active' : ''}`}
               onClick={() => setTab(k)}
             >
@@ -304,7 +318,7 @@ export function Combinatore({ open, onClose, onPickGame, games }: CombinatorePro
   };
 
   return (
-    <Modal open={open} onClose={onClose} size="md">
+    <Modal open={open} onClose={onClose} size="md" label="Combinatore">
       <header className="sheet-head">
         <div className="sheet-deck">Indicami una mano</div>
         <h2 className="sheet-title">Combinatore</h2>
@@ -336,28 +350,28 @@ export function Combinatore({ open, onClose, onPickGame, games }: CombinatorePro
               value={maxMinutes}
               onChange={(e) => setMaxMinutes(+e.target.value)}
             />
-            <span className="combo-value">
-              {maxMinutes < 60
-                ? `${maxMinutes}'`
-                : `${Math.floor(maxMinutes / 60)}h${maxMinutes % 60 ? ` ${maxMinutes % 60}'` : ''}`}
-            </span>
+            <span className="combo-value">{fmtDuration(maxMinutes)}</span>
           </div>
         </label>
-        <label className="combo-row">
+        {/* div, not label: a label wrapping buttons forwards clicks on its text to the first button */}
+        {/* biome-ignore lint/a11y/useSemanticElements: fieldset brings default border/padding and flex quirks */}
+        <div className="combo-row" role="group" aria-label="Difficoltà max">
           <span className="combo-label">Difficoltà max</span>
           <div className="combo-chips">
             {([1, 2, 3] as const).map((c) => (
               <button
                 type="button"
                 key={c}
+                aria-pressed={c === maxComplexity}
                 className={`chip ${c === maxComplexity ? 'is-active' : ''}`}
                 onClick={() => setMaxComplexity(c)}
               >
-                {'●'.repeat(c) + '○'.repeat(3 - c)}
+                <span aria-hidden="true">{complexityDots(c)}</span>
+                <span className="sr-only">Difficoltà {c} su 3</span>
               </button>
             ))}
           </div>
-        </label>
+        </div>
       </section>
 
       <section className="combo-result">
@@ -462,7 +476,7 @@ export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
   };
 
   return (
-    <Modal open={open} onClose={onClose} size="md">
+    <Modal open={open} onClose={onClose} size="md" label="Segnapunti">
       <header className="sheet-head">
         <div className="sheet-deck">{game ? game.name : 'Strumenti'}</div>
         <h2 className="sheet-title">Segnapunti</h2>
@@ -471,6 +485,7 @@ export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
             <button
               key={n}
               type="button"
+              aria-pressed={numPlayers === n}
               className={`mazzi-tab ${numPlayers === n ? 'is-active' : ''}`}
               onClick={() => {
                 if (
@@ -506,6 +521,7 @@ export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
                     className="score-name-input"
                     value={playerNames[i]}
                     placeholder={`G${i + 1}`}
+                    aria-label={`Nome giocatore ${i + 1}`}
                     onChange={(e) => {
                       const next = [...playerNames];
                       next[i] = e.target.value;
@@ -535,6 +551,7 @@ export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
                       <input
                         type="number"
                         className="score-cell-input"
+                        aria-label={`${cat.label}, ${playerNames[i] || `G${i + 1}`}`}
                         value={currentCategoryRound[cat.key]?.[i] ?? ''}
                         onChange={(e) => {
                           const next = {
@@ -559,6 +576,7 @@ export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
                     <input
                       type="number"
                       className="score-cell-input"
+                      aria-label={`Punti ${playerNames[i] || `G${i + 1}`}`}
                       value={currentRound[i]}
                       onChange={(e) => {
                         const newRound = [...currentRound];

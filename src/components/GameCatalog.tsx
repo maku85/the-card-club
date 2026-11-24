@@ -31,11 +31,11 @@ const DURATION_BUCKETS: Bucket<number>[] = [
   { label: "30-60'", test: (m) => m > 30 && m <= 60 },
   { label: "> 60'", test: (m) => m > 60 },
 ];
-const COMPLEXITY: { label: string; value: Complexity }[] = [
-  { label: complexityDots(1), value: 1 },
-  { label: complexityDots(2), value: 2 },
-  { label: complexityDots(3), value: 3 },
-];
+const COMPLEXITY: { label: string; value: Complexity; srLabel: string }[] = [1, 2, 3].map((c) => ({
+  label: complexityDots(c),
+  value: c as Complexity,
+  srLabel: `${c} su 3`,
+}));
 
 interface GameCatalogProps {
   games: Game[];
@@ -126,12 +126,12 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="logo" onClick={scrollToTop}>
+        <button type="button" className="logo" onClick={scrollToTop} aria-label="Torna su">
           <span className="logo-mark">♠</span>
           <span className="logo-name">
             The <span className="logo-dot">Card</span> Club
           </span>
-        </div>
+        </button>
         <nav className="topnav">
           <button type="button" onClick={() => setShowMazzi(true)}>
             Mazzi
@@ -153,23 +153,33 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
 
       <nav className="mobile-nav">
         <button type="button" onClick={() => setShowGlossario(true)}>
-          <span className="mobile-nav-icon">📖</span>
+          <span className="mobile-nav-icon" aria-hidden="true">
+            📖
+          </span>
           <span>Glossario</span>
         </button>
         <button type="button" onClick={() => setShowMazzi(true)}>
-          <span className="mobile-nav-icon">🃏</span>
+          <span className="mobile-nav-icon" aria-hidden="true">
+            🃏
+          </span>
           <span>Mazzi</span>
         </button>
         <button type="button" onClick={() => setShowCombinatore(true)}>
-          <span className="mobile-nav-icon">⚙️</span>
+          <span className="mobile-nav-icon" aria-hidden="true">
+            ⚙️
+          </span>
           <span>Mixer</span>
         </button>
         <button type="button" onClick={() => setShowScoreboard(true)}>
-          <span className="mobile-nav-icon">📝</span>
+          <span className="mobile-nav-icon" aria-hidden="true">
+            📝
+          </span>
           <span>Punti</span>
         </button>
         <button type="button" onClick={pickRandom} className="mobile-nav-cta">
-          <span className="mobile-nav-icon">🎲</span>
+          <span className="mobile-nav-icon" aria-hidden="true">
+            🎲
+          </span>
           <span>Pesca</span>
         </button>
       </nav>
@@ -184,11 +194,17 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
           <input
             type="text"
             placeholder="Cerca un gioco, un tipo, un mazzo…"
+            aria-label="Cerca un gioco"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
           {query && (
-            <button type="button" className="search-clear" onClick={() => setQuery('')}>
+            <button
+              type="button"
+              className="search-clear"
+              onClick={() => setQuery('')}
+              aria-label="Cancella ricerca"
+            >
               ×
             </button>
           )}
@@ -245,6 +261,7 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
         <div className="filter-status">
           <button
             type="button"
+            aria-pressed={favOnly}
             className={`chip chip-fav ${favOnly ? 'is-active' : ''}`}
             onClick={() => setFavOnly((v) => !v)}
           >

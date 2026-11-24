@@ -197,6 +197,8 @@ export function DeckBackCard({ onPick }: { onPick: () => void }) {
 interface ChipOption {
   label: string;
   value?: string | number;
+  /** Spoken instead of `label` when the label is symbolic (e.g. ●●○). */
+  srLabel?: string;
 }
 
 interface ChipGroupPropsMulti {
@@ -236,18 +238,27 @@ export function ChipGroup(props: ChipGroupProps) {
   };
 
   return (
-    <div className="chip-group">
+    // biome-ignore lint/a11y/useSemanticElements: fieldset brings default border/padding and flex quirks
+    <div className="chip-group" role="group" aria-label={label}>
       <span className="chip-label">{label}</span>
       <div className="chips">
         {options.map((opt) => (
           <button
             type="button"
             key={opt.label}
+            aria-pressed={isActive(opt.value ?? opt.label)}
             className={`chip ${isActive(opt.value ?? opt.label) ? 'is-active' : ''}`}
             onClick={() => toggle(opt.value ?? opt.label)}
             data-value={String(opt.value ?? opt.label)}
           >
-            {opt.label}
+            {opt.srLabel ? (
+              <>
+                <span aria-hidden="true">{opt.label}</span>
+                <span className="sr-only">{opt.srLabel}</span>
+              </>
+            ) : (
+              opt.label
+            )}
           </button>
         ))}
       </div>
