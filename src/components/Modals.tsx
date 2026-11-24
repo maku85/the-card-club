@@ -176,7 +176,7 @@ export function MazziModal({ open, onClose, onPickGame, games, mazzi }: MazziMod
         {/* Immagine di copertina premium */}
         <div className="mazzi-cover-container">
           <Image
-            src={`/images/decks/${tab.toLowerCase()}.png`}
+            src={`/images/decks/${tab.toLowerCase()}.webp`}
             alt={`${m.title} Cover`}
             fill
             sizes="(max-width: 768px) 100vw, 800px"

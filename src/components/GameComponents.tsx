@@ -2,12 +2,8 @@
 
 import Link from 'next/link';
 import type React from 'react';
+import { complexityDots, fmtDuration, fmtPlayers } from '@/lib/format';
 import type { Game } from '@/types';
-
-const fmtPlayers = (p: [number, number]) => (p[0] === p[1] ? `${p[0]}` : `${p[0]}–${p[1]}`);
-const fmtDuration = (m: number) =>
-  m < 60 ? `${m}'` : `${Math.floor(m / 60)}h${m % 60 ? ` ${m % 60}'` : ''}`;
-const complexityDots = (c: number) => '●'.repeat(c) + '○'.repeat(3 - c);
 
 export function TavoloVirtuale({ game }: { game: Game }) {
   const setup = game.tableSetup;

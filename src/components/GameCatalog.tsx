@@ -6,6 +6,7 @@ import { ChipGroup, DeckBackCard, GameCard } from '@/components/GameComponents';
 import { Combinatore, GlossarioModal, MazziModal, ScoreboardModal } from '@/components/Modals';
 import { useFavorites } from '@/hooks/useFavorites';
 import { DECK_TO_TAB } from '@/lib/decks';
+import { complexityDots } from '@/lib/format';
 import type { Complexity, Game, GameCategory, GlossaryEntry, MazziData } from '@/types';
 
 const DECKS = ['Latini', 'Francesi', 'Tedeschi', 'Speciali'] as const;
@@ -30,7 +31,6 @@ const DURATION_BUCKETS: Bucket<number>[] = [
   { label: "30-60'", test: (m) => m > 30 && m <= 60 },
   { label: "> 60'", test: (m) => m > 60 },
 ];
-const complexityDots = (c: number) => '●'.repeat(c) + '○'.repeat(3 - c);
 const COMPLEXITY: { label: string; value: Complexity }[] = [
   { label: complexityDots(1), value: 1 },
   { label: complexityDots(2), value: 2 },

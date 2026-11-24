@@ -849,8 +849,6 @@ a {
   .sheet {
     border-radius: 28px 28px 0 0;
     border-bottom: none;
-    max-height: 90vh;
-    /* fallback for older browsers */
     max-height: calc(100dvh - 32px);
     /* ensure it's always smaller than the viewport */
     padding: 48px 24px 100px;

@@ -9,6 +9,9 @@ const withPWA = withPWAInit({
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  output: 'export',
+  // Static export has no image optimizer; deck covers are pre-compressed WebP.
+  images: { unoptimized: true },
 };
 
 export default withPWA(nextConfig);
