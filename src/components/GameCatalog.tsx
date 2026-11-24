@@ -193,7 +193,7 @@ export function GameCatalog({ games, glossary, mazzi }: GameCatalogProps) {
           <span className="search-icon">⌕</span>
           <input
             type="text"
-            placeholder="Cerca un gioco, un tipo, un mazzo…"
+            placeholder="Cerca un gioco o un mazzo…"
             aria-label="Cerca un gioco"
             value={query}
             onChange={(e) => setQuery(e.target.value)}

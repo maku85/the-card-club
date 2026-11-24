@@ -5,6 +5,7 @@ import type React from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { DECK_TO_TAB } from '@/lib/decks';
 import { complexityDots, fmtDuration } from '@/lib/format';
+import { emptyRow, loadScoreboard, saveScoreboard } from '@/lib/scoreboard';
 import type { Game, GlossaryEntry, MazziData } from '@/types';
 import { BastoniIcon, CoppeIcon, DenariIcon, SpadeIcon } from './SuitIcon';
 
@@ -412,21 +413,31 @@ interface ScoreboardModalProps {
   game?: Game;
 }
 
-const emptyRow = () => Array(4).fill('');
-
 export function ScoreboardModal({ open, onClose, game }: ScoreboardModalProps) {
   const categories = game?.scoring?.categories;
   const winTarget = game?.scoring?.winTarget;
 
   const fixedPlayerCount =
     game && game.players[0] === game.players[1] ? Math.min(4, Math.max(2, game.players[0])) : null;
-  const [numPlayers, setNumPlayers] = useState(fixedPlayerCount ?? 2);
-  const [playerNames, setPlayerNames] = useState<string[]>(emptyRow());
-  const [scores, setScores] = useState<number[][]>([]);
-  const [currentRound, setCurrentRound] = useState<string[]>(emptyRow());
-  const [currentCategoryRound, setCurrentCategoryRound] = useState<Record<string, string[]>>(() =>
-    Object.fromEntries((categories ?? []).map((c) => [c.key, emptyRow()])),
+  // Only mounted after a click, so reading localStorage here cannot cause a hydration mismatch.
+  const [saved] = useState(() =>
+    loadScoreboard(game?.id, categories?.map((c) => c.key) ?? [], fixedPlayerCount ?? 2),
   );
+  const [numPlayers, setNumPlayers] = useState(saved.numPlayers);
+  const [playerNames, setPlayerNames] = useState(saved.playerNames);
+  const [scores, setScores] = useState(saved.scores);
+  const [currentRound, setCurrentRound] = useState(saved.currentRound);
+  const [currentCategoryRound, setCurrentCategoryRound] = useState(saved.currentCategoryRound);
+
+  useEffect(() => {
+    saveScoreboard(game?.id, {
+      numPlayers,
+      playerNames,
+      scores,
+      currentRound,
+      currentCategoryRound,
+    });
+  }, [game?.id, numPlayers, playerNames, scores, currentRound, currentCategoryRound]);
 
   const totals = useMemo(() => {
     const t = Array(numPlayers).fill(0);

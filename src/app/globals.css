@@ -161,7 +161,7 @@ a {
     align-items: center;
     gap: 4px;
     font-family: var(--mono-font);
-    font-size: 9px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--ink-soft);
@@ -224,7 +224,7 @@ a {
   gap: 12px;
   max-width: 560px;
   border-bottom: 1.5px solid var(--ink);
-  padding: 10px 4px;
+  padding: 0 4px;
   transition: border-color 0.2s ease;
 }
 
@@ -241,6 +241,8 @@ a {
 
 .search input {
   flex: 1;
+  min-width: 0;
+  min-height: 46px;
   background: transparent;
   border: none;
   outline: none;
@@ -291,7 +293,7 @@ a {
 
 .chip-label {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -732,7 +734,7 @@ a {
   display: block;
   margin-top: 4px;
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: color-mix(in oklch, var(--paper) 75%, transparent);
@@ -765,7 +767,7 @@ a {
   display: flex;
   justify-content: space-between;
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--ink-soft);
@@ -923,7 +925,8 @@ a {
   animation: none;
 }
 
-.sheet-page::before {
+.sheet-page::before,
+.sheet-page::after {
   display: none;
 }
 
@@ -958,7 +961,7 @@ a {
 
 .sheet-deck {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--ink-soft);
@@ -1006,7 +1009,7 @@ a {
 }
 
 .sheet-meta dt {
-  font-size: 9.5px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink-soft);
@@ -1038,7 +1041,7 @@ a {
 .sheet-body h3 {
   font-family: var(--mono-font);
   font-weight: 500;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--ink-soft);
@@ -1049,7 +1052,7 @@ a {
 
 .sheet-body h4 {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
@@ -1097,7 +1100,7 @@ a {
   left: 0;
   top: 2px;
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.05em;
   color: var(--red);
 }
@@ -1128,7 +1131,7 @@ a {
 
 .sheet-body th {
   text-align: left;
-  font-size: 9.5px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -1181,7 +1184,7 @@ a {
 
 .sheet-related-label {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--ink-soft);
@@ -1575,9 +1578,9 @@ a {
   margin-top: 14px;
   text-align: center;
   font-family: var(--mono-font);
-  font-size: 10.5px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.08em;
   color: oklch(0.96 0.01 85 / 0.8);
 }
 
@@ -1615,7 +1618,7 @@ a {
 
 .sheet-print {
   font-family: var(--mono-font);
-  font-size: 10.5px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--ink-soft);
@@ -1705,7 +1708,7 @@ a {
 .mazzi-tab {
   padding: 8px 16px;
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -1747,7 +1750,7 @@ a {
 
 .mazzi-suit-label {
   font-family: var(--mono-font);
-  font-size: 10.5px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
@@ -1784,7 +1787,7 @@ a {
 
 .mazzi-game-meta {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -1809,7 +1812,7 @@ a {
 
 .combo-label {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--ink-soft);
@@ -1874,7 +1877,7 @@ a {
 
 .combo-count {
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--ink-soft);
@@ -1939,7 +1942,7 @@ a {
 
 .combo-game-meta {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -1948,7 +1951,7 @@ a {
 .combo-more {
   text-align: center;
   font-family: var(--mono-font);
-  font-size: 10.5px;
+  font-size: 12px;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
   text-transform: uppercase;
@@ -1966,7 +1969,7 @@ a {
   }
 
   .combo-label {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .combo-input {
@@ -1993,7 +1996,7 @@ a {
   }
 
   .combo-game-meta {
-    font-size: 9px;
+    font-size: 12px;
   }
 }
 
@@ -2087,7 +2090,7 @@ a {
 
 .mazzi-spec-label {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-soft);
@@ -2189,7 +2192,7 @@ a {
 
 .mazzi-trivia-label {
   font-family: var(--mono-font);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--gold);
@@ -2239,7 +2242,8 @@ a {
   color: var(--ink);
   font-family: var(--display-font);
   font-style: italic;
-  font-size: 15px;
+  /* 16px: iOS zooms the page when focusing a smaller input */
+  font-size: 16px;
 }
 
 .score-name-input:hover,
@@ -2250,7 +2254,8 @@ a {
 
 .score-cell-input {
   width: 80%;
-  padding: 8px;
+  font-size: 16px;
+  padding: 8px 2px;
   text-align: center;
   border-radius: 4px;
   border: 1px solid var(--rule);
@@ -2260,7 +2265,7 @@ a {
 
 .score-round-label {
   font-family: var(--mono-font);
-  font-size: 10.5px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--ink-soft);
@@ -2306,4 +2311,62 @@ button.logo {
   line-height: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+/* Touch screens: 44px minimum targets */
+@media (pointer: coarse) {
+  .chip,
+  .sheet-print,
+  .mazzi-tab,
+  .combo-game,
+  .score-name-input,
+  .score-cell-input {
+    min-height: 44px;
+  }
+
+  .chip,
+  .search-clear,
+  .sheet-close,
+  .card-fav {
+    min-width: 44px;
+  }
+
+  .score-cell-input {
+    width: 100%;
+  }
+
+  .card-fav {
+    top: 1px;
+    right: 1px;
+  }
+
+  /* an explicit min-width lets flex items shrink below their text */
+  .chip {
+    flex-shrink: 0;
+  }
+
+  /* taller hit area, same visible size */
+  .logo,
+  button.logo {
+    padding-block: 8px;
+    margin-block: -8px;
+  }
+
+  .combo-input input[type="range"] {
+    height: 44px;
+    padding-block: 21px;
+    background-clip: content-box;
+  }
+
+  .search-clear,
+  .sheet-close,
+  .card-fav {
+    height: 44px;
+  }
+
+  a.chip,
+  a.sheet-print {
+    display: inline-flex;
+    align-items: center;
+  }
 }

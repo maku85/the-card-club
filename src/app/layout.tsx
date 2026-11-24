@@ -43,8 +43,8 @@ const cloudflareBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it">
-      <body className={cormorant.variable}>{children}</body>
+    <html lang="it" className={cormorant.variable}>
+      <body>{children}</body>
       {cloudflareBeaconToken && (
         <Script
           src="https://static.cloudflareinsights.com/beacon.min.js"
