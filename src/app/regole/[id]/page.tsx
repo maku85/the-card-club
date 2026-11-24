@@ -16,6 +16,8 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getGames().map((game) => ({ id: game.id }));
 }

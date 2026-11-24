@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getGames } from '@/lib/data';
 import { SITE_URL } from '@/lib/site';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const gameEntries: MetadataRoute.Sitemap = getGames().map((game) => ({
     url: `${SITE_URL}/regole/${game.id}`,
