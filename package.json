@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "start": "next start",
+    "start": "pnpm dlx serve@14 out",
     "test": "node --test \"src/**/*.test.mjs\"",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
