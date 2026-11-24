@@ -5,16 +5,12 @@ import { TavoloVirtuale } from '@/components/GameComponents';
 import { RulesPageActions } from '@/components/RulesPageActions';
 import { getGameRules, getGames } from '@/lib/data';
 import { DECK_TO_TAB } from '@/lib/decks';
+import { complexityDots, fmtDuration, fmtPlayers } from '@/lib/format';
 import { SITE_URL } from '@/lib/site';
 import type { Deck } from '@/types';
 
 const deckImage = (deck: Deck) =>
-  `/images/decks/${(DECK_TO_TAB[deck] ?? 'Latini').toLowerCase()}.png`;
-
-const fmtPlayers = (p: [number, number]) => (p[0] === p[1] ? `${p[0]}` : `${p[0]}–${p[1]}`);
-const fmtDuration = (m: number) =>
-  m < 60 ? `${m}'` : `${Math.floor(m / 60)}h${m % 60 ? ` ${m % 60}'` : ''}`;
-const complexityDots = (c: number) => '●'.repeat(c) + '○'.repeat(3 - c);
+  `/images/decks/${(DECK_TO_TAB[deck] ?? 'Latini').toLowerCase()}.webp`;
 
 interface PageProps {
   params: Promise<{ id: string }>;
